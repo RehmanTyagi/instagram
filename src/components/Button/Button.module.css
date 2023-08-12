@@ -1,0 +1,15 @@
+.button {
+    padding: .5rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--themeColor);
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+}
+
+.button:hover,
+.button:focus {
+    background-color: rgba(72, 120, 500);
+
+}

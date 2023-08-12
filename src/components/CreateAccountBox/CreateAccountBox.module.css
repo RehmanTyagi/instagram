@@ -1,0 +1,23 @@
+.containerEffect {
+    border: 2px solid rgba(211, 211, 211, 0.5);
+    border-radius: 3px;
+}
+
+.signUp_box .signUp_Link {
+    font-weight: 700;
+    color: rgb(0, 16, 135);
+    text-decoration: none;
+}
+
+.signUp_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: 1rem;
+    padding: 1.5rem;
+}
+
+.signUp_Link {
+    color: var(--themeColor) !important;
+}

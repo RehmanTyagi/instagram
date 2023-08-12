@@ -1,0 +1,13 @@
+.horizontal_line {
+    color: gray;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.horizontal_line hr {
+    border: 1px solid rgba(212, 212, 212, .8);
+    width: 100%;
+    height: 0;
+}

@@ -1,0 +1,34 @@
+.inputGroup {
+    position: relative;
+}
+
+.input {
+    padding: 1rem .5rem .5rem .5rem;
+    border: 1.5px solid lightgray;
+    border-radius: 5px;
+    background-color: rgba(240, 240, 240, 0.3);
+    outline: none;
+    width: 100%;
+}
+
+
+
+.input:focus {
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: gray;
+}
+
+.floatingPlaceholder {
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    pointer-events: none;
+    transition: 200ms ease all;
+    transform: translateY(-50%);
+}
+
+.input:valid+.floatingPlaceholder {
+    font-size: .7rem;
+    top: 9px;
+}
