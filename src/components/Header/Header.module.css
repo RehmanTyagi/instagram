@@ -1,0 +1,12 @@
+.headerContainer {
+    z-index: 1001;
+    display: flex;
+    padding-left: 1rem;
+    position: fixed;
+    width: 100%;
+    background-color: black;
+}
+
+.brandColor {
+    color: white;
+}

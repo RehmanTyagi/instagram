@@ -1,0 +1,11 @@
+.backButton {
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: .5rem;
+    color: var(--textColor);
+}
+
+.backButton:hover {
+    color: var(--themeColor);
+}
