@@ -1,7 +1,9 @@
 .headerContainer {
     z-index: 1001;
     display: flex;
-    padding-left: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 2rem;
     position: fixed;
     width: 100%;
     background-color: black;
@@ -9,4 +11,10 @@
 
 .brandColor {
     color: white;
+}
+
+.logOutBtn {
+    padding: .5rem 1rem;
+    background-color: transparent;
+    border: 2px solid var(--themeColor);
 }

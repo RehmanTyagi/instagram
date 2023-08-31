@@ -1,0 +1,74 @@
+.profileCard {
+    height: 90%;
+    margin: auto;
+    display: grid;
+    /* grid-template-rows: 200px 70%; */
+}
+
+
+.userInfo {
+    display: grid;
+    grid-template-columns: 200px 500px;
+    margin: auto;
+    align-items: center;
+    grid-gap: 2rem;
+}
+
+.ProfilePicture {
+    grid-row: 1/4;
+    align-self: flex-start;
+}
+
+.userActions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.userStatstics {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    letter-spacing: 1px;
+}
+
+.userStatstics span {
+    font-weight: 500;
+}
+
+.userStatstics span>span {
+    font-weight: 600;
+}
+
+.userName {
+    font-size: 1.5rem;
+}
+
+.messageBtn {
+    background-color: rgb(233, 233, 233);
+    color: black;
+}
+
+.userDescription {
+    width: 80%
+}
+
+.userContent {
+    border-top: 1px solid lightgray;
+}
+
+.tabBtns {
+    justify-content: center;
+    display: flex;
+    gap: 3rem;
+}
+
+.tabBtns .tab {
+    text-decoration: none;
+}
+
+.tabBtns :global(.active) {
+    color: var(--themeColor);
+    font-weight: 600;
+    border-top: 1px solid var(--themeColor);
+}

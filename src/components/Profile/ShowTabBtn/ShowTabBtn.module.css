@@ -1,0 +1,10 @@
+.showTabBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+    padding: 1em .5em;
+    text-transform: uppercase;
+    cursor: pointer;
+
+}

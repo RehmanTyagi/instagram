@@ -37,10 +37,28 @@
     color: var(--textColor);
 }
 
+.passwordInputBox {
+    position: relative;
+}
+
+.passwordShowBtn {
+    z-index: 1000;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.passwordShowBtn:hover {
+    color: var(--themeColor);
+}
+
 .loginForm {
     display: grid;
     place-items: center;
 }
+
 
 .containerEffect {
     border: 2px solid rgba(211, 211, 211, 0.5);

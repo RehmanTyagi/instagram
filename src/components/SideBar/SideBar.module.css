@@ -1,0 +1,24 @@
+.sideBar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 1rem;
+    border-right: 1px solid lightgray;
+    /* box-shadow: 30px 20px 10px whitesmoke; */
+}
+
+.sideBarLogo {
+    font-size: 2rem;
+}
+
+
+.link {
+    font-size: 1rem;
+}
+
+.linkContainer {
+    display: grid;
+    grid-gap: 1rem;
+    /* line-height: 10px; */
+}

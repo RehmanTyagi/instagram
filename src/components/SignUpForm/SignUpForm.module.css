@@ -1,0 +1,23 @@
+.signUpForm {
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 1rem;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+
+.signUpForm p {
+    font-weight: 600;
+    color: var(--textColor);
+}
+
+.isEmpty {
+    border: 1px solid red;
+}

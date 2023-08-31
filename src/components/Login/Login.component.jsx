@@ -11,7 +11,7 @@ function LoginForm() {
                 <Form />
                 <CreateAccountBox text={`Don't have an account?`} type="Sign Up" />
             </div>
-            <p className={styles.copyrights}><strong>SastaGram</strong> Developed by Rehmann Chaudhary</p>
+            <p className={styles.copyrights}><strong>SocialGram</strong> Developed by Rehmann Chaudhary</p>
         </div>
     );
 }
