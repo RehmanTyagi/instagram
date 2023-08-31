@@ -7,7 +7,7 @@ import Button from "../../UI/Button/Button.component";
 import BackButton from "../BackButton/BackButton.component";
 // import ToastNotification from "../../UI/ToastNotification/ToastNotification";
 import PasswordHealthChecker from "../PasswordHealthChecker/PasswordHealthChecker.component";
-import { useReducer, useRef, useState } from "react";
+import { useReducer, useState } from "react";
 import { firebaseApp } from "../../utils/firebase.config";
 import { createUserWithEmailAndPassword, getAuth, AuthErrorCodes } from 'firebase/auth'
 
@@ -33,8 +33,8 @@ function Reducer(state, action) {
 
 function SignUpForm() {
     const [state, dispatch] = useReducer(Reducer, initialUserInfo)
-    const { email, password, confirmPassword, fullName, userName } = state
-    const [userCreated, setUserCreated] = useState(false)
+    const { email, password, confirmPassword } = state
+    // const [userCreated, setUserCreated] = useState(false)
     const [error, setError] = useState('')
 
 
@@ -46,7 +46,7 @@ function SignUpForm() {
 
         createUserWithEmailAndPassword(auth, email, password).then(
             (userCredential) => {
-                setUserCreated(true)
+                // setUserCreated(true)
                 setError('')
                 dispatch({ type: "resetForm" })
                 window.location.href = "/"

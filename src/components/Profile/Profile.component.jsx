@@ -4,7 +4,7 @@ import style from './Profile.module.css'
 import Avatar from "./Avatar/Avatar.component"
 import Button from "../../UI/Button/Button.component"
 import ShowTabBtn from "./ShowTabBtn/ShowTabBtn.component"
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 // imported icons
 import { CiGrid41, CiMenuKebab, CiBookmarkCheck } from 'react-icons/ci'
