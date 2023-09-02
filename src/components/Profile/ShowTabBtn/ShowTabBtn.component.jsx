@@ -1,7 +1,8 @@
 import style from './ShowTabBtn.module.css'
-const ShowTabBtn = ({ icon, className, text }) => {
+import { NavLink } from "react-router-dom"
+const ShowTabBtn = ({ url, icon, className, text }) => {
     return (
-        <div to="#" className={`${style.showTabBtn} ${className}`}>{icon} {text}</div>
+        <NavLink to={url} className={`${style.showTabBtn} ${className}`}>{icon} {text}</NavLink>
     )
 }
 

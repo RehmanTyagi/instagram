@@ -1,17 +1,22 @@
 .profileCard {
-    height: 90%;
-    margin: auto;
+    padding: 2.5em 5em;
     display: grid;
-    /* grid-template-rows: 200px 70%; */
+    grid-gap: 2rem;
+    width: 80%;
 }
 
+.moreOption {
+    transform: rotate(270deg);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 
 .userInfo {
     display: grid;
     grid-template-columns: 200px 500px;
     margin: auto;
     align-items: center;
-    grid-gap: 2rem;
+    grid-gap: 2.5rem;
 }
 
 .ProfilePicture {
@@ -61,14 +66,4 @@
     justify-content: center;
     display: flex;
     gap: 3rem;
-}
-
-.tabBtns .tab {
-    text-decoration: none;
-}
-
-.tabBtns :global(.active) {
-    color: var(--themeColor);
-    font-weight: 600;
-    border-top: 1px solid var(--themeColor);
 }

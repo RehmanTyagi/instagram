@@ -5,3 +5,11 @@
     text-decoration: none;
     color: var(--themeColor);
 }
+
+.brandLogo .tagLine {
+    color: var(--textColor);
+    font-weight: 600;
+    position: relative;
+    left: 20px;
+    bottom: 5px;
+}

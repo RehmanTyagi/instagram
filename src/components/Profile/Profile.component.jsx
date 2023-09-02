@@ -4,7 +4,8 @@ import style from './Profile.module.css'
 import Avatar from "./Avatar/Avatar.component"
 import Button from "../../UI/Button/Button.component"
 import ShowTabBtn from "./ShowTabBtn/ShowTabBtn.component"
-import { NavLink } from "react-router-dom"
+import ContentBox from "../ContentBox/ContentBox.component"
+// import { NavLink } from "react-router-dom"
 
 // imported icons
 import { CiGrid41, CiMenuKebab, CiBookmarkCheck } from 'react-icons/ci'
@@ -19,7 +20,7 @@ const Profile = () => {
                     <p className={style.userName}>Rehmann Chaudhary</p>
                     <Button type='button' children='Follow' />
                     <Button className={style.messageBtn} type='button' children='Message' />
-                    <CiMenuKebab />
+                    <CiMenuKebab className={style.moreOption} />
                 </div>
                 <div className={style.userStatstics}>
                     <span><span>25</span> Posts</span>
@@ -37,18 +38,13 @@ const Profile = () => {
             </div>
             <div className={style.userContent}>
                 <div className={style.tabBtns}>
-                    <NavLink className={style.tab} to="#">
-                        <ShowTabBtn text='posts' icon={<CiGrid41 />} />
-                    </NavLink>
-                    <NavLink className={style.tab} to="#">
-                        <ShowTabBtn text='saved' icon={<CiBookmarkCheck />} />
-                    </NavLink>
-                    <NavLink className={style.tab} to="#">
-                        <ShowTabBtn text='tagged' icon={<CgTag />} />
-                    </NavLink>
+                    <ShowTabBtn url={'/dashboard/posts'} text='posts' icon={<CiGrid41 />} />
+                    <ShowTabBtn url={'/dashboard/reels'} text='Reels' icon={<CiBookmarkCheck />} />
+                    <ShowTabBtn url={'/tagged'} text='tagged' icon={<CgTag />} />
                 </div>
+                <ContentBox />
             </div>
-        </div >
+        </div>
     )
 }
 

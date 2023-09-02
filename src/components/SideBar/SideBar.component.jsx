@@ -13,11 +13,13 @@ import homeIcon from '../../assets/icons/homeIcon'
 import searchIcon from '../../assets/icons/searchIcon'
 import notificationIcon from '../../assets/icons/notificationIcon'
 import Avatar from "../Profile/Avatar/Avatar.component"
+import BrandLogo from "../../UI/Logo/Logo.compnent"
 function SideBar() {
     return (
         <div className={styles.sideBar}>
             <span></span>
             <div className={styles.linkContainer}>
+                <BrandLogo />
                 <MyNavLink className={styles.link} IconPath={homeIcon} text="Home" />
                 <MyNavLink className={styles.link} IconPath={searchIcon} text="Search" />
                 <MyNavLink className={styles.link} link='explore' IconPath={exploreIcon} text="Explore" />
