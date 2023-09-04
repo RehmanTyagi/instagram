@@ -38,9 +38,9 @@ const Profile = () => {
             </div>
             <div className={style.userContent}>
                 <div className={style.tabBtns}>
-                    <ShowTabBtn url={'/dashboard/posts'} text='posts' icon={<CiGrid41 />} />
-                    <ShowTabBtn url={'/dashboard/reels'} text='Reels' icon={<CiBookmarkCheck />} />
-                    <ShowTabBtn url={'/tagged'} text='tagged' icon={<CgTag />} />
+                    <ShowTabBtn url={'profile/posts'} text='posts' icon={<CiGrid41 />} />
+                    <ShowTabBtn url={'profile/reels'} text='Reels' icon={<CiBookmarkCheck />} />
+                    <ShowTabBtn url={'profile/tagged'} text='tagged' icon={<CgTag />} />
                 </div>
                 <ContentBox />
             </div>

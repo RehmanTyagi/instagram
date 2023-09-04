@@ -24,7 +24,6 @@ function Header() {
                     <Button className={styles.logOutBtn} event={handleLogOut} type='button' children="Log out" />
                 }
             </div>
-            <Outlet />
         </Fragment>
     );
 }

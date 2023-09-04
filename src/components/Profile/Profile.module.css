@@ -1,8 +1,6 @@
 .profileCard {
-    padding: 2.5em 5em;
     display: grid;
     grid-gap: 2rem;
-    width: 80%;
 }
 
 .moreOption {

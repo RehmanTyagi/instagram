@@ -20,14 +20,14 @@ function SideBar() {
             <span></span>
             <div className={styles.linkContainer}>
                 <BrandLogo />
-                <MyNavLink className={styles.link} IconPath={homeIcon} text="Home" />
-                <MyNavLink className={styles.link} IconPath={searchIcon} text="Search" />
-                <MyNavLink className={styles.link} link='explore' IconPath={exploreIcon} text="Explore" />
-                <MyNavLink className={styles.link} IconPath={reelsIcon} text="Reels" />
-                <MyNavLink className={styles.link} IconPath={messageIcon} text="Messages" />
-                <MyNavLink className={styles.link} IconPath={notificationIcon} text="Notification" />
-                <MyNavLink className={styles.link} IconPath={CreatePostIcon} text="Create" />
-                <MyNavLink className={styles.link} IconPath={<Avatar inlineStyle={{ height: "30px", width: "30px", border: "3px solid black" }} />} text="Profile" />
+                <MyNavLink className={styles.link} IconPath={homeIcon} text="Home" link="home" />
+                <MyNavLink className={styles.link} IconPath={searchIcon} text="Search" link="search" />
+                <MyNavLink className={styles.link} IconPath={exploreIcon} text="Explore" link='explore' />
+                <MyNavLink className={styles.link} IconPath={reelsIcon} text="Reels" link="reels" />
+                <MyNavLink className={styles.link} IconPath={messageIcon} text="Messages" link="inbox" />
+                <MyNavLink className={styles.link} IconPath={notificationIcon} text="Notification" link="notifications" />
+                <MyNavLink className={styles.link} IconPath={CreatePostIcon} text="Create" link="createPost" />
+                <MyNavLink className={styles.link} IconPath={<Avatar inlineStyle={{ height: "30px", width: "30px", border: "3px solid black" }} />} text="Profile" link="profile/posts" />
             </div>
             <UserPanel className={styles.link} />
         </div>
