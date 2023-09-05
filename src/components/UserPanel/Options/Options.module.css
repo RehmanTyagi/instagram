@@ -8,4 +8,5 @@
     box-shadow: 10px -5px 20px 5px whitesmoke;
     position: absolute;
     bottom: 150%;
+    text-transform: capitalize;
 }

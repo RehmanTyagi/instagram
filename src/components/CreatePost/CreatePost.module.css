@@ -1,0 +1,13 @@
+.heading {
+    padding: 0.5rem;
+    border-bottom: 1px solid lightgray;
+
+}
+
+.uploadArea {
+    display: grid;
+    justify-items: center;
+    gap: 2rem;
+    padding: 2rem 5rem;
+    margin: auto;
+}

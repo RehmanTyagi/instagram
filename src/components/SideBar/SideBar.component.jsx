@@ -27,7 +27,7 @@ function SideBar() {
                 <MyNavLink className={styles.link} IconPath={messageIcon} text="Messages" link="inbox" />
                 <MyNavLink className={styles.link} IconPath={notificationIcon} text="Notification" link="notifications" />
                 <MyNavLink className={styles.link} IconPath={CreatePostIcon} text="Create" link="createPost" />
-                <MyNavLink className={styles.link} IconPath={<Avatar inlineStyle={{ height: "30px", width: "30px", border: "3px solid black" }} />} text="Profile" link="profile/posts" />
+                <MyNavLink className={styles.link} IconPath={<Avatar inlineStyle={{ height: "30px", width: "30px", border: "3px solid black" }} />} text="Profile" link="profile" />
             </div>
             <UserPanel className={styles.link} />
         </div>
