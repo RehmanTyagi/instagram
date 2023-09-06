@@ -1,8 +1,15 @@
 .heading {
     padding: 0.5rem;
-    border-bottom: 1px solid lightgray;
 
 }
+
+.modalNav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    border-bottom: 1px solid lightgray;
+}
+
 
 .uploadArea {
     display: grid;
@@ -10,4 +17,9 @@
     gap: 2rem;
     padding: 2rem 5rem;
     margin: auto;
+}
+
+.previewFrame {
+    height: 500px;
+    width: 500px;
 }
