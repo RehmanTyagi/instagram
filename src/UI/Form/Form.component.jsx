@@ -2,6 +2,7 @@ import styles from './Form.module.css'
 
 // hooks
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // external libraries
 import { Link } from "react-router-dom";
@@ -22,6 +23,7 @@ function Form() {
     const [error, setError] = useState('')
     const [isPasswordShow, setIsPasswordShow] = useState(false)
     const inputRef = useRef()
+    const navigate = useNavigate()
     // firebase auth
     let auth = getAuth(firebaseApp)
     let LoginProvider = new GoogleAuthProvider()
@@ -36,9 +38,10 @@ function Form() {
         signInWithEmailAndPassword(auth, email, password).then(
             (userCredential) => {
                 setError('')
-                setEmail("")
-                setPassword("")
-                window.location.href = "dashboard"
+                setEmail('')
+                setPassword('')
+                navigate('dashboard')
+
             }
         ).catch((err) => {
             if (err.code === "auth/user-not-found") setError('user does not in our database')
