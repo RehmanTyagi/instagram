@@ -14,57 +14,60 @@ import { useEffect, useState } from "react"
 
 const CreatePost = () => {
     const [postFile, setPostFile] = useState(null)
-    const [uploadedFile, setUploadedFile] = useState(null)
-    const [isPreview, setIsPreview] = useState(false)
-
-    console.log(uploadedFile)
+    const [uploadedFile, setUploadedFile] = useState('')
 
     // select file and change file on selection
     const changeFileHandler = () => {
         let input = document.createElement("input")
         input.type = 'file'
-        input.click()
         input.onchange = () => {
             const selectedFile = input.files[0]
             setPostFile(selectedFile)
         }
+        input.click()
     }
     // uploading the file to firebase storage
     useEffect(function () {
         if (postFile === null) return
         const postFileRef = ref(myStorage, `posts/${postFile.name}`)
-        uploadBytes(postFileRef, postFile).then(() => alert("file uploaded")).catch(() => alert("file not uploaded"))
+        uploadBytes(postFileRef, postFile).then((data) => {
+            console.log("file sent", data);
+            fetchFile();
+        }).catch(() => alert("file not uploaded"))
     }, [postFile])
 
 
     // fetching file from firebase storage
-    const uploadedFileRef = ref(myStorage, 'posts/')
-    useEffect(function () {
+    const uploadedFileRef = ref(myStorage, 'posts/');
 
+    const fetchFile = async () => {
         listAll(uploadedFileRef).then((response) => {
+            console.log(response.items);
             response.items.forEach(item => {
                 getDownloadURL(item).then(url => {
                     setUploadedFile(url)
-                    setIsPreview(true)
                 })
             })
         })
-    }, [uploadedFileRef])
+    }
 
+    useEffect(function () {
+        fetchFile()
+    }, [uploadedFile])
 
     return (
         <Modal>
             <div className={style.modalNav}>
                 {
-                    isPreview && <Button type="button" children="Discard" />
+                    uploadedFile && <Button type="button" children="Discard" />
                 }
                 <h1 className={style.heading}>create new post</h1>
                 {
-                    isPreview && <Button type="button" children="Share" />
+                    uploadedFile && <Button type="button" children="Share" />
                 }
             </div>
             {
-                isPreview ? <img className={style.previewFrame} src={uploadedFile} alt="img/video" />
+                uploadedFile ? <img className={style.previewFrame} src={uploadedFile} alt="img/video" />
                     : <div className={style.uploadArea}>
                         {uploadFileIcon}
                         <p>drag photos and videos here</p>
