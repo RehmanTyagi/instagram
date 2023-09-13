@@ -1,0 +1,19 @@
+.notificationItem {
+    display: grid;
+    padding: 1em;
+    align-items: center;
+    grid-template-columns: auto 200px auto;
+    margin: .5rem auto;
+    border-radius: 5px;
+}
+
+.avatar {
+    background-color: lightgray;
+    margin-right: 1em;
+    border-radius: 100%;
+    height: 60px;
+}
+
+.notificationItem:hover {
+    background-color: whitesmoke;
+}

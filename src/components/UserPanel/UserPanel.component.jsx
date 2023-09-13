@@ -28,7 +28,7 @@ function UserPanel({ className }) {
 
     return (
         <div className={`${style.userPanel} ${className}`} >
-            <MyNavLink ref={panelBtnRef} IconPath={MenuIcon} text="More" />
+            <MyNavLink ref={panelBtnRef} IconPath={MenuIcon} />
             {
                 isPanelOpen && <OptionDropDown ref={userPanelRef} className={style.Options} />
             }

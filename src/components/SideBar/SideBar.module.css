@@ -1,10 +1,26 @@
 .sideBar {
+    position: relative;
     display: flex;
     background-color: white;
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem;
     border-right: 1px solid lightgray;
+}
+
+
+.icon:global(.active) {
+    stroke: var(--themeColor);
+    fill: var(--themeColor);
+}
+
+.fullSideBar {
+    width: 250px;
+}
+
+.miniSideBar {
+    transition: .5s ease-in-out;
+    width: 90px;
 }
 
 .sideBarLogo {
@@ -14,6 +30,7 @@
 
 .link {
     font-size: 1rem;
+    justify-content: flex-start;
 }
 
 .link:global(.active) {
@@ -26,5 +43,4 @@
 .linkContainer {
     display: grid;
     grid-gap: 1rem;
-    /* line-height: 10px; */
 }

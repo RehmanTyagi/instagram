@@ -54,7 +54,7 @@ function Form() {
 
     const HandleGoogleLogin = () => {
         signInWithPopup(auth, LoginProvider).then((userCredential) => {
-            window.location.href = "dashboard"
+            navigate('dashboard')
         }).catch((err) => {
             if (AuthErrorCodes.POPUP_CLOSED_BY_USER) setError("Popup Canceled by you")
         })

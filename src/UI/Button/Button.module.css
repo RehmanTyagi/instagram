@@ -1,15 +1,20 @@
 .button {
-    padding: .5rem;
+    padding: .5rem 1rem;
     border-radius: 10px;
     border: none;
     background-color: var(--themeColor);
     font-weight: 600;
     cursor: pointer;
     color: white;
+    transition: all ease .5s;
 }
 
-.button:hover,
-.button:focus {
+.button:hover {
     background-color: rgba(72, 120, 500);
+    background-color: lightgray;
+    color: black;
+}
 
+.button:active {
+    scale: 0.5;
 }

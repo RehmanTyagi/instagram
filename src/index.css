@@ -34,12 +34,12 @@ code {
   --themeColor: rgba(72, 140, 500);
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 10px;
   background-color: white;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background-color: var(--themeColor);
   border-radius: 10px;
 }

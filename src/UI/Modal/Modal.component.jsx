@@ -1,20 +1,18 @@
 import style from './Modal.module.css'
 
-import { useCreatePost } from "../../contexts/CreatePostContext";
+// import { useState } from "react";
 
-const Modal = ({ children }) => {
-    const { isOpen, handleModal } = useCreatePost()
-
+const Modal = ({ children, isModalOpen, setIsModalOpen }) => {
     return (
         <>
             {
-                isOpen &&
+                isModalOpen &&
                 <>
                     <div className={style.backDrop}></div>
                     <div className={style.modal}>
                         {children}
                     </div>
-                    <span onClick={handleModal} className={style.closeBtn}>&times;</span>
+                    <span onClick={() => setIsModalOpen(false)} className={style.closeBtn}>&times;</span>
                 </>
             }
         </>

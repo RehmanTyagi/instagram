@@ -4,7 +4,7 @@ import style from './CreatePost.module.css'
 import Modal from "../../UI/Modal/Modal.component"
 import Button from "../../UI/Button/Button.component"
 import { myStorage } from "../../utils/firebase.config"
-import { ref, uploadBytes, listAll, getDownloadURL } from 'firebase/storage'
+import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage'
 
 // imported icons
 import uploadFileIcon from "../../assets/icons/uploadFileIcon"
@@ -12,7 +12,7 @@ import uploadFileIcon from "../../assets/icons/uploadFileIcon"
 //imported hooks
 import { useEffect, useState } from "react"
 
-const CreatePost = () => {
+const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
     const [postFile, setPostFile] = useState(null)
     const [uploadedFile, setUploadedFile] = useState('')
 
@@ -26,23 +26,22 @@ const CreatePost = () => {
         }
         input.click()
     }
+
     // uploading the file to firebase storage
     useEffect(function () {
         if (postFile === null) return
-        const postFileRef = ref(myStorage, `posts/${postFile.name}`)
-        uploadBytes(postFileRef, postFile).then((data) => {
-            console.log("file sent", data);
+        const postFileRef = ref(myStorage, `preview/file`)
+        uploadBytes(postFileRef, postFile).then(() => {
             fetchFile();
         }).catch(() => alert("file not uploaded"))
     }, [postFile])
 
 
     // fetching file from firebase storage
-    const uploadedFileRef = ref(myStorage, 'posts/');
+    const uploadedFileRef = ref(myStorage, 'preview/');
 
-    const fetchFile = async () => {
+    const fetchFile = () => {
         listAll(uploadedFileRef).then((response) => {
-            console.log(response.items);
             response.items.forEach(item => {
                 getDownloadURL(item).then(url => {
                     setUploadedFile(url)
@@ -51,15 +50,26 @@ const CreatePost = () => {
         })
     }
 
+
+    const handleDiscardFile = () => {
+        const deleteFileRef = ref(myStorage, `preview/file`)
+        deleteObject(deleteFileRef).then(() => {
+            setUploadedFile('')
+        }
+        ).catch(err => console.log(err.message))
+
+    }
+
     useEffect(function () {
         fetchFile()
-    }, [uploadedFile])
+    }, [])
+
 
     return (
-        <Modal>
+        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
             <div className={style.modalNav}>
                 {
-                    uploadedFile && <Button type="button" children="Discard" />
+                    uploadedFile && <Button type="button" children="Discard" event={handleDiscardFile} />
                 }
                 <h1 className={style.heading}>create new post</h1>
                 {
