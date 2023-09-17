@@ -8,19 +8,14 @@ const Notification = ({ Condition }) => {
         <InfoTab className={`${style.notification} ${Condition ? style.active : ''}`}>
             <h1>Notification</h1>
             <NotificationItem notificationType={'follow'} />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
-            <NotificationItem />
+            <NotificationItem notificationType={'follow'} />
+            <NotificationItem notificationType={'follow'} />
+            <NotificationItem notificationType={'follow'} />
+            <NotificationItem notificationType={'like'} />
+            <NotificationItem notificationType={'dislike'} />
+            <NotificationItem notificationType={'like'} />
+            <NotificationItem notificationType={'follow'} />
+            <NotificationItem notificationType={'like'} />
         </InfoTab>
     )
 }

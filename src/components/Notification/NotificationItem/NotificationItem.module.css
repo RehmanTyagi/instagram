@@ -17,3 +17,14 @@
 .notificationItem:hover {
     background-color: whitesmoke;
 }
+
+.postImg {
+    background-color: lightgray;
+    height: 60px;
+    padding: .5em;
+}
+
+.time,
+.userName {
+    font-weight: 600;
+}

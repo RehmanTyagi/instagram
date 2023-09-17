@@ -34,21 +34,19 @@ function SideBar({ setIsModalOpen }) {
     return (
         <>
             <div className={`${styles.sideBar} ${!isTextShow ? styles.fullSideBar : styles.miniSideBar}`}>
-                <span></span>
+                {
+                    !isTextShow && <BrandLogo />
+                }
                 <div className={styles.linkContainer}>
-                    {
-                        !isTextShow && <BrandLogo />
-                    }
                     <MyNavLink className={styles.link} IconPath={homeIcon} text={`${!isTextShow ? 'Home' : ''}`} link="home" />
                     <MyNavLink className={styles.link} IconPath={searchIcon} text={`${!isTextShow ? 'Search' : ''}`} link="search" />
                     <MyNavLink className={styles.link} IconPath={exploreIcon} text={`${!isTextShow ? 'Explore' : ''}`} link='explore' />
                     <MyNavLink className={styles.link} IconPath={reelsIcon} text={`${!isTextShow ? 'Reels' : ''}`} link="reels" />
-                    <MyNavLink className={styles.link} IconPath={messageIcon} text={`${!isTextShow ? 'Message' : ''}`} link="inbox" />
                     <MyNavLink onClick={handleNotification} className={styles.link} IconPath={<NotificationIcon className={`${styles.icon} ${isTextShow ? 'active' : ''}`} />} text={`${!isTextShow ? 'Notification' : ''}`} link="notifications" />
                     <MyNavLink onClick={handleCreatePost} className={styles.link} IconPath={CreatePostIcon} text={`${!isTextShow ? 'Create' : ''}`} link="createPost" />
                     <MyNavLink className={styles.link} IconPath={<Avatar inlineStyle={{ height: "30px", width: "30px", border: "3px solid black" }} />} text={`${!isTextShow ? 'Profile' : ''}`} link="profile" />
                 </div>
-                <UserPanel className={styles.link} />
+                <UserPanel isTextShow={isTextShow} className={styles.link} />
                 <Notification Condition={isTextShow} />
             </div>
         </>
