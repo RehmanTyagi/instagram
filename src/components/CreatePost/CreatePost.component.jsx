@@ -27,16 +27,6 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         input.click()
     }
 
-    // uploading the file to firebase storage
-    useEffect(function () {
-        if (postFile === null) return
-        const postFileRef = ref(myStorage, `preview/file`)
-        uploadBytes(postFileRef, postFile).then(() => {
-            fetchFile();
-        }).catch(() => alert("file not uploaded"))
-    }, [postFile, fetchFile])
-
-
     // fetching file from firebase storage
     const uploadedFileRef = ref(myStorage, 'preview/');
 
@@ -50,6 +40,15 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         })
     }, [uploadedFileRef])
 
+
+    // uploading the file to firebase storage
+    useEffect(function () {
+        if (postFile === null) return
+        const postFileRef = ref(myStorage, `preview/file`)
+        uploadBytes(postFileRef, postFile).then(() => {
+            fetchFile();
+        }).catch(() => alert("file not uploaded"))
+    }, [postFile, fetchFile])
 
     const handleDiscardFile = () => {
         const deleteFileRef = ref(myStorage, `preview/file`)

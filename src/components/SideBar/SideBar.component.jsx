@@ -8,7 +8,6 @@ import Notification from "..//Notification/Notification.component"
 // imported icons
 import CreatePostIcon from "../../assets/icons/createPostIcon"
 import exploreIcon from "../../assets/icons/exploreIcon"
-import messageIcon from "../../assets/icons/MessagesIcon"
 import reelsIcon from "../../assets/icons/reelsIcon"
 import homeIcon from '../../assets/icons/homeIcon'
 import searchIcon from '../../assets/icons/searchIcon'
