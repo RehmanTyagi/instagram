@@ -1,7 +1,8 @@
 .profileCard {
     display: grid;
     grid-gap: 2rem;
-    grid-template-rows: 40%;
+    /* grid-template-rows: 40%; */
+    overflow-y: scroll;
 }
 
 .moreOption {
@@ -16,6 +17,7 @@
     margin: auto;
     align-items: center;
     grid-gap: 2.5rem;
+    padding: 3.5em;
 }
 
 .ProfilePicture {

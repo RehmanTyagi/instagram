@@ -9,7 +9,9 @@ import SignUpForm from "./components/SignUpForm/SignUpForm.component";
 import Dashboard from './pages/Dashboard'
 import Profile from './components/Profile/Profile.component'
 import Reels from "./components/Reels/Reels.component";
+import Posts from "./components/Profile/Posts/Posts.component";
 
+// imported contexts
 import { AudioProvider } from "./contexts/AudioContext";
 function App() {
   return (
@@ -20,11 +22,11 @@ function App() {
           <Routes>
             <Route index element={<LoginPage />} />
             <Route path="dashboard" element={<Dashboard />}>
-              <Route path="reels" element={<Reels />} />
+              <Route path="reels" element={<Reels isScrollable={true} />} />
               <Route index element={<Navigate to='profile/posts' />} />
               <Route path="profile" element={<Navigate to='posts' />} />
               <Route element={<Profile />}>
-                <Route path="profile/posts" element={<h1>Posts</h1>} />
+                <Route path="profile/posts" element={<Posts />} />
                 <Route path="profile/reels" element={<h1>Reels</h1>} />
                 <Route path="profile/tagged" element={<h1>tagged</h1>} />
               </Route>

@@ -57,8 +57,24 @@
 }
 
 @keyframes popupPlayBtn {
+    60% {
+        scale: 1;
+        opacity: 1;
+    }
+
+    80% {
+        scale: 1.1;
+        opacity: 1;
+    }
+
     100% {
         scale: 1;
         opacity: 1;
     }
+}
+
+.sideOptions {
+    position: absolute;
+    bottom: 10px;
+    left: 100%;
 }

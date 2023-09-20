@@ -8,8 +8,9 @@ import { CiPlay1 } from 'react-icons/ci'
 import { useState, useRef, useEffect, } from "react"
 import { useInView } from "react-intersection-observer"
 import { useAudio } from "../../../contexts/AudioContext"
+import CardSideMenu from "./CardSideMenu/CardSideMenu.component"
 
-const VideoCard = ({ url }) => {
+const VideoCard = ({ url, ShowOptions, className, autoPlay }) => {
 
     const [isReelPlaying, setIsReelPlaying] = useState(false)
     const reelRef = useRef(null)
@@ -31,15 +32,18 @@ const VideoCard = ({ url }) => {
 
     // controlling reel on change
     useEffect(function () {
-        if (videoIsVisible) {
-            reelRef.current.play()
-            setIsReelPlaying(true)
+        if (autoPlay) {
+
+            if (videoIsVisible) {
+                reelRef.current.play()
+                setIsReelPlaying(true)
+            }
+            else {
+                reelRef.current.pause()
+                setIsReelPlaying(false)
+            }
         }
-        else {
-            reelRef.current.pause()
-            setIsReelPlaying(false)
-        }
-    }, [videoIsVisible])
+    }, [videoIsVisible, autoPlay])
 
     // handle mute and unmute
     const handleMute = () => {
@@ -48,13 +52,18 @@ const VideoCard = ({ url }) => {
     }
 
     return (
-        <div onClick={handlePlayPause} ref={videoRef} className={style.videoCard}>
-            <video loop muted={isMuted} ref={reelRef} src={url} />
+        <div className={`${style.videoCard} ${className}`}>
+            <div onClick={handlePlayPause} ref={videoRef}>
+                <video loop muted={isMuted} ref={reelRef} src={url} />
+                {
+                    isMuted ? <BiVolumeMute onClick={handleMute} className={style.volumeBtn} /> : <BiVolumeFull onClick={handleMute} className={style.volumeBtn} />
+                }
+                {
+                    !isReelPlaying && <CiPlay1 className={style.playBtn} />
+                }
+            </div>
             {
-                isMuted ? <BiVolumeMute onClick={handleMute} className={style.volumeBtn} /> : <BiVolumeFull onClick={handleMute} className={style.volumeBtn} />
-            }
-            {
-                !isReelPlaying && <CiPlay1 className={style.playBtn} />
+                ShowOptions && <CardSideMenu className={style.sideOptions} />
             }
         </div>
     )
