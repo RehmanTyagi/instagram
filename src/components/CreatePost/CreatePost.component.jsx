@@ -10,7 +10,7 @@ import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebas
 import uploadFileIcon from "../../assets/icons/uploadFileIcon"
 
 //imported hooks
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 
 const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
     const [postFile, setPostFile] = useState(null)
@@ -34,13 +34,13 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         uploadBytes(postFileRef, postFile).then(() => {
             fetchFile();
         }).catch(() => alert("file not uploaded"))
-    }, [postFile])
+    }, [postFile, fetchFile])
 
 
     // fetching file from firebase storage
     const uploadedFileRef = ref(myStorage, 'preview/');
 
-    const fetchFile = () => {
+    const fetchFile = useCallback(() => {
         listAll(uploadedFileRef).then((response) => {
             response.items.forEach(item => {
                 getDownloadURL(item).then(url => {
@@ -48,7 +48,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
                 })
             })
         })
-    }
+    }, [uploadedFileRef])
 
 
     const handleDiscardFile = () => {
@@ -62,7 +62,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
 
     useEffect(function () {
         fetchFile()
-    }, [])
+    }, [fetchFile])
 
 
     return (
