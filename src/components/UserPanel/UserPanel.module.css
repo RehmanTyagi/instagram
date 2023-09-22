@@ -2,3 +2,17 @@
     position: relative;
     z-index: 1000;
 }
+
+@media (max-width:768px) {
+    .userPanel {
+        position: fixed;
+        top: 15px;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+    .moreOptionBtn {
+        padding: .5em;
+    }
+
+}

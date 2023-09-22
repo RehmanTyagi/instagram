@@ -1,7 +1,7 @@
 .profileCard {
     display: grid;
     grid-gap: 2rem;
-    /* grid-template-rows: 40%; */
+    grid-template-rows: 40%;
     overflow-y: scroll;
 }
 
@@ -67,4 +67,41 @@
     justify-content: center;
     display: flex;
     gap: 3rem;
+}
+
+@media (max-width:1100px) {
+    .profileCard {
+        grid-template-rows: 50%;
+    }
+
+    .userInfo {
+        padding: 1rem;
+        display: grid;
+        text-align: center;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .userDescription {
+        width: auto;
+    }
+}
+
+@media (max-width:768px) {
+    .profileCard {
+        display: block;
+    }
+
+    .userActions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .userName {
+        grid-column: 1/-1;
+    }
+
+    .tabBtns {
+        gap: 1.5rem;
+    }
 }

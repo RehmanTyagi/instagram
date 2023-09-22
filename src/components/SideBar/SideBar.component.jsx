@@ -1,55 +1,85 @@
-import styles from './SideBar.module.css'
+import styles from "./SideBar.module.css";
 
 // imported components
-import MyNavLink from "../NavLink/NavLink.component"
-import UserPanel from "../UserPanel/UserPanel.component"
-import Notification from "..//Notification/Notification.component"
+import MyNavLink from "../NavLink/NavLink.component";
+import UserPanel from "../UserPanel/UserPanel.component";
+import Notification from "..//Notification/Notification.component";
 
 // imported icons
-import CreatePostIcon from "../../assets/icons/createPostIcon"
-import exploreIcon from "../../assets/icons/exploreIcon"
-import reelsIcon from "../../assets/icons/reelsIcon"
-import homeIcon from '../../assets/icons/homeIcon'
-import searchIcon from '../../assets/icons/searchIcon'
-import NotificationIcon from '../../assets/icons/notificationIcon'
-import Avatar from "../Profile/Avatar/Avatar.component"
-import BrandLogo from "../../UI/Logo/Logo.compnent"
+import HomeIcon from "../../assets/icons/homeIcon";
+import SearchIcon from "../../assets/icons/searchIcon";
+import ExploreIcon from "../../assets/icons/exploreIcon";
+import ReelsIcon from "../../assets/icons/reelsIcon";
+import NotificationIcon from "../../assets/icons/notificationIcon";
+import CreatePostIcon from "../../assets/icons/createPostIcon";
+import Avatar from "../Profile/Avatar/Avatar.component";
+import BrandLogo from "../../UI/Logo/Logo.compnent";
 
 // imported hooks
-import { useState } from "react"
+import { useState, Fragment } from "react";
 
 function SideBar({ setIsModalOpen }) {
-    const [isTextShow, setIsTextShow] = useState(false)
+  const [isTextShow, setIsTextShow] = useState(false);
 
-    const handleCreatePost = (e) => {
-        e.preventDefault()
-        setIsModalOpen(true)
-    }
-    const handleNotification = (e) => {
-        e.preventDefault()
-        setIsTextShow(!isTextShow)
-    }
+  const handleCreatePost = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+  const handleNotification = (e) => {
+    e.preventDefault();
+    setIsTextShow(!isTextShow);
+  };
 
-    return (
-        <>
-            <div className={`${styles.sideBar} ${!isTextShow ? styles.fullSideBar : styles.miniSideBar}`}>
-                {
-                    !isTextShow && <BrandLogo />
-                }
-                <div className={styles.linkContainer}>
-                    <MyNavLink className={styles.link} IconPath={homeIcon} text={`${!isTextShow ? 'Home' : ''}`} link="home" />
-                    <MyNavLink className={styles.link} IconPath={searchIcon} text={`${!isTextShow ? 'Search' : ''}`} link="search" />
-                    <MyNavLink className={styles.link} IconPath={exploreIcon} text={`${!isTextShow ? 'Explore' : ''}`} link='explore' />
-                    <MyNavLink className={styles.link} IconPath={reelsIcon} text={`${!isTextShow ? 'Reels' : ''}`} link="reels" />
-                    <MyNavLink onClick={handleNotification} className={styles.link} IconPath={<NotificationIcon className={`${styles.icon} ${isTextShow ? 'active' : ''}`} />} text={`${!isTextShow ? 'Notification' : ''}`} link="notifications" />
-                    <MyNavLink onClick={handleCreatePost} className={styles.link} IconPath={CreatePostIcon} text={`${!isTextShow ? 'Create' : ''}`} link="createPost" />
-                    <MyNavLink className={styles.link} IconPath={<Avatar inlineStyle={{ height: "30px", width: "30px", border: "3px solid black" }} />} text={`${!isTextShow ? 'Profile' : ''}`} link="profile" />
-                </div>
-                <UserPanel isTextShow={isTextShow} className={styles.link} />
-                <Notification Condition={isTextShow} />
-            </div>
-        </>
-    )
+  return (
+    <Fragment>
+      <div className={`${styles.sideBar} ${styles.fullSideBar}`}>
+        {!isTextShow && <BrandLogo className={styles.sideBarLogo} />}
+        <div className={styles.linkContainer}>
+          <MyNavLink className={styles.link} link="home">
+            <HomeIcon />
+            <p className={styles.linkText}>Home</p>
+          </MyNavLink>
+          <MyNavLink className={styles.link} link="search">
+            <SearchIcon />
+            <p className={styles.linkText}>Search</p>
+          </MyNavLink>
+          <MyNavLink className={styles.link} link="explore">
+            <ExploreIcon />
+            <p className={styles.linkText}>explore</p>
+          </MyNavLink>
+          <MyNavLink className={styles.link} link="reels">
+            <ReelsIcon />
+            <p className={styles.linkText}>reels</p>
+          </MyNavLink>
+          <MyNavLink
+            onClick={handleNotification}
+            className={`${styles.link} ${isTextShow && "active"}`}
+            link="notifications"
+          >
+            <NotificationIcon />
+            <p className={styles.linkText}>Notification</p>
+          </MyNavLink>
+          <MyNavLink
+            onClick={handleCreatePost}
+            className={styles.link}
+            link="createPost"
+          >
+            <CreatePostIcon />
+            <p className={styles.linkText}>Create</p>
+          </MyNavLink>
+          <MyNavLink className={styles.link} link="profile">
+            <Avatar inlineStyle={{ height: "30px", width: "30px" }} />
+            <p className={styles.linkText}>Profile</p>
+          </MyNavLink>
+        </div>
+        <UserPanel
+          classForText={styles.linkText}
+          className={`${styles.link}`}
+        />
+        <Notification Condition={isTextShow} />
+      </div>
+    </Fragment>
+  );
 }
 
-export default SideBar
+export default SideBar;

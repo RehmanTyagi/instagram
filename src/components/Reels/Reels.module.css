@@ -26,3 +26,10 @@
 .scrollableVideoContainer::-webkit-scrollbar {
     display: none;
 }
+
+@media (max-width:768px) {
+    .scrollableVideoContainer {
+        display: block;
+        min-width: 0;
+    }
+}

@@ -10,3 +10,12 @@
     bottom: 150%;
     text-transform: capitalize;
 }
+
+@media (max-width:768px) {
+    .container {
+        position: relative;
+        top: 10px;
+        box-shadow: unset;
+        width: 100%;
+    }
+}

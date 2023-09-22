@@ -78,3 +78,18 @@
     bottom: 10px;
     left: 100%;
 }
+
+
+@media (max-width:768px) {
+    .sideOptions {
+        color: white;
+        left: 5px;
+        bottom: 15px;
+    }
+
+    .videoCard {
+        width: auto;
+        height: 100%;
+    }
+
+}

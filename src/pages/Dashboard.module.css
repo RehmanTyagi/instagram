@@ -1,5 +1,12 @@
 .dashboard {
-    height: 100vh;
+    height: 100dvh;
     display: grid;
     grid-template-columns: auto 1fr;
+}
+
+@media (max-width:768px) {
+    .dashboard {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }
