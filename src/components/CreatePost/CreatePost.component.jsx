@@ -7,7 +7,7 @@ import { myStorage } from "../../utils/firebase.config"
 import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage'
 
 // imported icons
-import uploadFileIcon from "../../assets/icons/uploadFileIcon"
+import UploadFileIcon from "../../assets/icons/uploadFileIcon"
 
 //imported hooks
 import { useEffect, useState, useCallback } from "react"
@@ -65,7 +65,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
 
 
     return (
-        <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+        <Modal className={style.uploadBox} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
             <div className={style.modalNav}>
                 {
                     uploadedFile && <Button type="button" children="Discard" event={handleDiscardFile} />
@@ -78,7 +78,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
             {
                 uploadedFile ? <img className={style.previewFrame} src={uploadedFile} alt="img/video" />
                     : <div className={style.uploadArea}>
-                        {uploadFileIcon}
+                        <UploadFileIcon/>
                         <p>drag photos and videos here</p>
                         <Button type="button" event={changeFileHandler} children="Select From Device" />
                     </div>

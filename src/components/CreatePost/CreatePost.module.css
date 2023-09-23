@@ -11,15 +11,34 @@
 }
 
 
-.uploadArea {
-    display: grid;
-    justify-items: center;
-    gap: 2rem;
-    padding: 2rem 5rem;
-    margin: auto;
+.uploadBox {
+    display: flex;
+    flex-direction: column;
 }
 
 .previewFrame {
-    height: 70vh;
-    width: 30vw;
+    height: 100%;
+}
+
+.uploadArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1em;
+    height: 100%;
+    width: 100%;
+}
+
+.uploadBox {
+    height: 80dvh;
+    width: 80dvb;
+}
+
+@media (max-width:768px) {
+    .uploadBox {
+        height: 70%;
+        width: 95%;
+    }
 }
