@@ -11,7 +11,7 @@
     opacity: 0;
     left: 0;
     z-index: 999;
-    transition: .5s ease-in-out;
+    transition: all .5s ease-in-out;
 }
 
 .notification.active {
@@ -29,7 +29,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .3em 2.5em;
+    padding: .5em 2em;
 }
 .tabNavbar span{
     font-size: 2.5rem;
@@ -37,14 +37,20 @@
 .tabNavbar span:hover{
     color: var(--themeColor);
 }
+.tabNavbar h1{
+    margin-left: 10px;
+}
 
 @media (max-width:768px) {
     .notification{
         width: 100%;
         position: fixed;
-        transform: unset;
+        transform: translateX(100%);
         opacity: 1;
         right:  0;
         top: 0;
+    }
+    .notification.active{
+        transform: translateX(-100%);
     }
 }

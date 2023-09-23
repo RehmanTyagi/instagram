@@ -1,8 +1,9 @@
 .notificationItem {
-    display: grid;
+    display: flex;
+    gap:.5rem;
     padding: 1em;
     align-items: center;
-    grid-template-columns: auto 200px auto;
+    justify-content: space-between;
     margin: .5rem auto;
     border-radius: 5px;
 }
@@ -27,4 +28,14 @@
 .time,
 .userName {
     font-weight: 600;
+}
+
+@media (max-width:768px) {
+    .avatar{
+        height: 40px;
+        width: 40px;
+    }
+    .notificationItem{
+        font-size: .9em;
+    }
 }

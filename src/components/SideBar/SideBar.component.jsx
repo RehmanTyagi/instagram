@@ -76,7 +76,7 @@ function SideBar({ setIsModalOpen }) {
           classForText={styles.linkText}
           className={`${styles.link}`}
         />
-        <Notification Condition={isTextShow} />
+        <Notification setIsTextShow={setIsTextShow} isTextShow={isTextShow} />
       </div>
     </Fragment>
   );

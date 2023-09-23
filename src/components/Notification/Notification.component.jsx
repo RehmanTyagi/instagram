@@ -3,12 +3,13 @@ import style from './Notification.module.css'
 // imported components
 import NotificationItem from "./NotificationItem/NotificationItem.component"
 import InfoTab from "../../UI/InfoTab/InfoTab.component"
-const Notification = ({ Condition }) => {
+const Notification = ({ isTextShow,setIsTextShow }) => {
+    // console.log(isTextShow)
     return (
-        <InfoTab className={`${style.notification} ${Condition ? style.active : ''}`}>
+        <InfoTab className={`${style.notification} ${isTextShow ? style.active : ''}`}>
             <div className={style.tabNavbar}>
             <h1>Notification</h1>
-            <span>&times;</span>
+            <span onClick={()=>setIsTextShow(!isTextShow)}>&times;</span>
             </div>
             <NotificationItem notificationType={'follow'} />
             <NotificationItem notificationType={'follow'} />
