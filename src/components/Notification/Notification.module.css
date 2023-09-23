@@ -25,3 +25,26 @@
 .notification h1 {
     font-size: 1.2rem;
 }
+.tabNavbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .3em 2.5em;
+}
+.tabNavbar span{
+    font-size: 2.5rem;
+}
+.tabNavbar span:hover{
+    color: var(--themeColor);
+}
+
+@media (max-width:768px) {
+    .notification{
+        width: 100%;
+        position: fixed;
+        transform: unset;
+        opacity: 1;
+        right:  0;
+        top: 0;
+    }
+}
