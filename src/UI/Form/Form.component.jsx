@@ -15,7 +15,7 @@ import Button from "../Button/Button.component";
 import PasswordHealthChecker from "../../components/PasswordHealthChecker/PasswordHealthChecker.component";
 import HorizontalLine from "../HorizontalLine/HorizontalLine.component";
 import { signInWithEmailAndPassword, getAuth, AuthErrorCodes, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { firebaseApp } from "../../utils/firebase.config";
+import { firebaseApp } from "../../services/firebase.config";
 
 function Form() {
     const [email, setEmail] = useState('')

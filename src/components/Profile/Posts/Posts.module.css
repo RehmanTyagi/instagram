@@ -16,6 +16,6 @@
 
 @media (max-width:768px) {
     .postsContainer {
-        grid-template-columns: repeat(auto-fit, minmax(50px, 350px));
+        grid-template-columns: repeat(auto-fit, minmax(50px, 100px));
     }
 }

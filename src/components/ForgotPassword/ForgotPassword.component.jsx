@@ -11,7 +11,7 @@ import CreateAccountBox from "../CreateAccountBox/CreateAccountBox.component";
 import Box from '../Box/Box.component'
 import BackButton from "../BackButton/BackButton.component";
 import { sendPasswordResetEmail, getAuth, AuthErrorCodes } from "firebase/auth";
-import { firebaseApp } from "../../utils/firebase.config";
+import { firebaseApp } from "../../services/firebase.config";
 import { useState } from "react";
 
 function ForgotPassword({ style }) {

@@ -3,14 +3,17 @@ import style from './CreatePost.module.css'
 // imported components
 import Modal from "../../UI/Modal/Modal.component"
 import Button from "../../UI/Button/Button.component"
-import { myStorage } from "../../utils/firebase.config"
+import { myStorage } from "../../services/firebase.config"
 import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage'
 
 // imported icons
 import UploadFileIcon from "../../assets/icons/uploadFileIcon"
 
 //imported hooks
-import { useEffect, useState, useCallback,useMemo } from "react"
+import { useEffect, useState, useCallback, useMemo } from "react"
+
+// imported methods
+import { uploadPost } from "../../services/firebase.config"
 
 const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
     const [postFile, setPostFile] = useState(null)
@@ -26,9 +29,10 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         }
         input.click()
     }
+    console.log(postFile)
 
     // fetching file from firebase storage
-    const uploadedFileRef = useMemo(()=> ref(myStorage, 'preview/'),[]);
+    const uploadedFileRef = useMemo(() => ref(myStorage, 'preview/'), []);
 
     const fetchFile = useCallback(() => {
         listAll(uploadedFileRef).then((response) => {
@@ -48,7 +52,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         uploadBytes(postFileRef, postFile).then(() => {
             fetchFile();
         }).catch(() => alert("file not uploaded"))
-    }, [postFile,fetchFile])
+    }, [postFile, fetchFile])
 
     const handleDiscardFile = () => {
         const deleteFileRef = ref(myStorage, `preview/file`)
@@ -57,6 +61,11 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         }
         ).catch(err => console.log(err.message))
 
+    }
+
+    const handleUpload = () => {
+        uploadPost(uploadedFile)
+        setIsModalOpen(!isModalOpen)
     }
 
 
@@ -68,13 +77,13 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
                 }
                 <h1 className={style.heading}>create new post</h1>
                 {
-                    uploadedFile && <Button type="button" children="Share" />
+                    uploadedFile && <Button event={handleUpload} type="button" children="Share" />
                 }
             </div>
             {
                 uploadedFile ? <img className={style.previewFrame} src={uploadedFile} alt="img/video" />
                     : <div className={style.uploadArea}>
-                        <UploadFileIcon/>
+                        <UploadFileIcon />
                         <p>drag photos and videos here</p>
                         <Button type="button" event={changeFileHandler} children="Select From Device" />
                     </div>

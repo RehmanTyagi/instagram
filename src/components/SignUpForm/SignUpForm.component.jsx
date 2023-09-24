@@ -8,7 +8,7 @@ import BackButton from "../BackButton/BackButton.component";
 // import ToastNotification from "../../UI/ToastNotification/ToastNotification";
 import PasswordHealthChecker from "../PasswordHealthChecker/PasswordHealthChecker.component";
 import { useReducer, useState } from "react";
-import { firebaseApp } from "../../utils/firebase.config";
+import { firebaseApp } from "../../services/firebase.config";
 import { createUserWithEmailAndPassword, getAuth, AuthErrorCodes } from 'firebase/auth'
 
 const initialUserInfo = {

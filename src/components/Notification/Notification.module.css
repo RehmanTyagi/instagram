@@ -25,32 +25,42 @@
 .notification h1 {
     font-size: 1.2rem;
 }
-.tabNavbar{
+
+.tabNavbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .5em 2em;
+    padding: 0 2em;
 }
-.tabNavbar span{
-    font-size: 2.5rem;
+
+.tabNavbar span {
+    display: grid;
+    padding: .2em;
+    background-color: whitesmoke;
+    border-radius: 100%;
 }
-.tabNavbar span:hover{
-    color: var(--themeColor);
+
+.tabNavbar span:hover {
+    color: white;
+    cursor: pointer;
+    background-color: var(--themeColor);
 }
-.tabNavbar h1{
+
+.tabNavbar h1 {
     margin-left: 10px;
 }
 
 @media (max-width:768px) {
-    .notification{
+    .notification {
         width: 100%;
         position: fixed;
         transform: translateX(100%);
         opacity: 1;
-        right:  0;
+        right: 0;
         top: 0;
     }
-    .notification.active{
+
+    .notification.active {
         transform: translateX(-100%);
     }
 }
