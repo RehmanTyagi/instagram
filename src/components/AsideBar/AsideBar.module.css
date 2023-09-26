@@ -30,7 +30,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2em;
 }
 
 .tabNavbar span {
@@ -50,6 +49,39 @@
     margin-left: 10px;
 }
 
+.searchContainer {
+    position: relative;
+}
+
+.searchBox {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: .5em;
+    margin: 1rem 0 .5rem 0;
+    border-radius: 7px;
+    border: none;
+    background-color: whitesmoke;
+}
+
+.searchBox:focus {
+    outline: 2px solid var(--themeColor);
+}
+
+.searchResetBtn {
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-20%);
+    background-color: lightgray;
+    right: 10px;
+    position: absolute;
+    border-radius: 100%;
+}
+
+.searchResetBtn:hover {
+    background-color: var(--themeColor);
+    color: white;
+}
+
 @media (max-width:768px) {
     .notification {
         width: 100%;
@@ -62,5 +94,9 @@
 
     .notification.active {
         transform: translateX(-100%);
+    }
+
+    .tabNavbar {
+        padding: 0 2em;
     }
 }

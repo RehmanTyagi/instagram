@@ -3,14 +3,15 @@ import styles from "./SideBar.module.css";
 // imported components
 import MyNavLink from "../NavLink/NavLink.component";
 import UserPanel from "../UserPanel/UserPanel.component";
-import Notification from "..//Notification/Notification.component";
+import AsideBar from "../AsideBar/AsideBar.component";
+import NotificationItem from "../AsideBar/AsideBarItem/AsideBarItem.component";
 
 // imported icons
+import { BiHeart } from 'react-icons/bi'
 import HomeIcon from "../../assets/icons/homeIcon";
 import SearchIcon from "../../assets/icons/searchIcon";
 import ExploreIcon from "../../assets/icons/exploreIcon";
 import ReelsIcon from "../../assets/icons/reelsIcon";
-import NotificationIcon from "../../assets/icons/notificationIcon";
 import CreatePostIcon from "../../assets/icons/createPostIcon";
 import Avatar from "../Profile/Avatar/Avatar.component";
 import BrandLogo from "../../UI/Logo/Logo.compnent";
@@ -19,7 +20,8 @@ import BrandLogo from "../../UI/Logo/Logo.compnent";
 import { useState, Fragment } from "react";
 
 function SideBar({ setIsModalOpen }) {
-  const [isTextShow, setIsTextShow] = useState(false);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   const handleCreatePost = (e) => {
     e.preventDefault();
@@ -27,19 +29,27 @@ function SideBar({ setIsModalOpen }) {
   };
   const handleNotification = (e) => {
     e.preventDefault();
-    setIsTextShow(!isTextShow);
+    setIsNotificationOpen(!isNotificationOpen);
+    setIsSearchOpen(false)
   };
+  const handleSearch = (e) => {
+    e.preventDefault()
+    console.log('search btn hit')
+    setIsSearchOpen(!isSearchOpen)
+    setIsNotificationOpen(false)
+  }
+  console.log(styles)
 
   return (
     <Fragment>
       <div className={`${styles.sideBar} ${styles.fullSideBar}`}>
-        {!isTextShow && <BrandLogo className={styles.sideBarLogo} />}
+        <BrandLogo className={styles.sideBarLogo} />
         <div className={styles.linkContainer}>
           <MyNavLink className={styles.link} link="home">
             <HomeIcon />
             <p className={styles.linkText}>Home</p>
           </MyNavLink>
-          <MyNavLink className={styles.link} link="search">
+          <MyNavLink link="search" onClick={handleSearch} className={`${styles.link} ${isSearchOpen ? "active" : ""}`}>
             <SearchIcon />
             <p className={styles.linkText}>Search</p>
           </MyNavLink>
@@ -53,10 +63,9 @@ function SideBar({ setIsModalOpen }) {
           </MyNavLink>
           <MyNavLink
             onClick={handleNotification}
-            className={`${styles.link} ${isTextShow && "active"}`}
-            link="notifications"
-          >
-            <NotificationIcon />
+            className={`${styles.link} ${isNotificationOpen ? "active" : ""}`}
+            link="notifications">
+            <BiHeart style={{ position: "relative", right: "3px" }} size={30} />
             <p className={styles.linkText}>Notification</p>
           </MyNavLink>
           <MyNavLink
@@ -76,7 +85,11 @@ function SideBar({ setIsModalOpen }) {
           classForText={styles.linkText}
           className={`${styles.link}`}
         />
-        <Notification setIsTextShow={setIsTextShow} isTextShow={isTextShow} />
+        <AsideBar heading="Notifications" isOpen={isNotificationOpen} setIsOpen={setIsNotificationOpen}>
+          <NotificationItem notificationType={"follow"} />
+        </AsideBar>
+        <AsideBar type="search" heading="Search" isOpen={isSearchOpen} setIsOpen={setIsSearchOpen}>
+        </AsideBar>
       </div>
     </Fragment>
   );

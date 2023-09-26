@@ -1,6 +1,6 @@
 .notificationItem {
     display: flex;
-    gap:.5rem;
+    gap: .5rem;
     padding: 1em;
     align-items: center;
     justify-content: space-between;
@@ -31,11 +31,12 @@
 }
 
 @media (max-width:768px) {
-    .avatar{
+    .avatar {
         height: 40px;
         width: 40px;
     }
-    .notificationItem{
+
+    .notificationItem {
         font-size: .9em;
     }
 }

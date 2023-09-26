@@ -13,7 +13,7 @@ import UploadFileIcon from "../../assets/icons/uploadFileIcon"
 import { useEffect, useState, useCallback, useMemo } from "react"
 
 // imported methods
-import { uploadPost } from "../../services/firebase.config"
+import { uploadPost } from "../../services/postsApi.js"
 
 const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
     const [postFile, setPostFile] = useState(null)

@@ -1,5 +1,7 @@
 // imported components
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 // Site Pages
 import LoginPage from "./pages/LoginPage";
@@ -14,9 +16,11 @@ import Posts from "./components/Profile/Posts/Posts.component";
 // imported contexts
 import { AudioProvider } from "./contexts/AudioContext";
 function App() {
-  return (
-    <div className="App">
+  const queryClient = new QueryClient()
 
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools />
       <BrowserRouter>
         <AudioProvider>
           <Routes>
@@ -37,8 +41,7 @@ function App() {
           </Routes>
         </AudioProvider>
       </BrowserRouter>
-
-    </div>
+    </QueryClientProvider>
   );
 }
 

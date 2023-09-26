@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getStorage } from 'firebase/storage'
-import { getDatabase, ref, set } from 'firebase/database'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,12 +22,3 @@ export const firebaseApp = initializeApp(firebaseConfig);
 
 // Initializing Firestore Storage
 export const myStorage = getStorage(firebaseApp)
-
-//intialize realtime database
-export const database = getDatabase(firebaseApp)
-
-
-export const uploadPost = async (data) => {
-    console.log(data)
-    set(ref(database, 'posts/' + crypto.randomUUID()), { url: data }).then(alert('successful')).catch(err => alert(err))
-}

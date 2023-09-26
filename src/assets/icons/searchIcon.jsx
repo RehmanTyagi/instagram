@@ -2,8 +2,6 @@ function SearchIcon() {
   return (
     <svg
       aria-label="Search"
-      color="rgb(0, 0, 0)"
-      fill="rgb(0, 0, 0)"
       height="24"
       role="img"
       viewBox="0 0 24 24"
