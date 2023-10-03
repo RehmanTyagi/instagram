@@ -1,5 +1,8 @@
 import style from './VideoCard.module.css'
 
+// imported components
+import CardSideMenu from "./CardSideMenu/CardSideMenu.component"
+
 //imported icons
 import { BiVolumeMute, BiVolumeFull } from 'react-icons/bi'
 import { CiPlay1 } from 'react-icons/ci'
@@ -8,16 +11,15 @@ import { CiPlay1 } from 'react-icons/ci'
 import { useState, useRef, useEffect, } from "react"
 import { useInView } from "react-intersection-observer"
 import { useAudio } from "../../../contexts/AudioContext"
-import CardSideMenu from "./CardSideMenu/CardSideMenu.component"
 
 const VideoCard = ({ url, ShowOptions, className, autoPlay }) => {
 
     const [isReelPlaying, setIsReelPlaying] = useState(false)
+    const { isMuted, setIsMuted } = useAudio()
     const reelRef = useRef(null)
     const { ref: videoRef, inView: videoIsVisible } = useInView({
         threshold: 1
     })
-    const { isMuted, setIsMuted } = useAudio()
 
     // handle onclick play and pause
     const handlePlayPause = () => {

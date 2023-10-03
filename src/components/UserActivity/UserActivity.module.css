@@ -1,0 +1,48 @@
+.activityContainer {
+    height: 100%;
+    padding: 5em;
+    overflow: auto;
+}
+
+.activityHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activityHeader h1 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    color: var(--themeColor);
+}
+
+.dateContainer {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.calendarIcon,
+.downArrowIcon {
+    font-size: 1.5rem;
+}
+
+.activityBody {
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    background-color: white;
+    padding: 2.5em;
+    margin-top: 3.5rem;
+}
+
+.activityItem {
+    margin: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}

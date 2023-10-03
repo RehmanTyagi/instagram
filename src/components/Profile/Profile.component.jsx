@@ -11,7 +11,6 @@ import ContentBox from "../ContentBox/ContentBox.component";
 import { CiGrid41, CiBookmarkCheck } from "react-icons/ci";
 import { CgTag } from "react-icons/cg";
 
-console.log(style);
 const Profile = () => {
   return (
     <div className={style.profileCard}>
@@ -54,7 +53,7 @@ const Profile = () => {
             text="Reels"
             icon={<CiBookmarkCheck />}
           />
-          <ShowTabBtn url={"profile/tagged"} text="tagged" icon={<CgTag />} />
+          <ShowTabBtn url={"profile/saved"} text="saved" icon={<CgTag />} />
         </div>
         <ContentBox />
       </div>

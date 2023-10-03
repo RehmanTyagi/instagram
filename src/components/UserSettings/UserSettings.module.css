@@ -1,0 +1,41 @@
+.settings {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.heading {
+    font-size: 2rem;
+}
+
+.content {
+    display: grid;
+    gap: 1rem;
+    padding: 1em;
+    max-width: 350px;
+}
+
+
+.content div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.content .profilePicture {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userWebsite textarea {
+    resize: none;
+    width: 100%;
+    padding: .5em;
+}
+
+.userWebsite p:last-child {
+    font-size: .8rem;
+    color: var(--themeColor);
+    text-decoration: underline;
+}

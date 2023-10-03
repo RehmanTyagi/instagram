@@ -29,7 +29,6 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         }
         input.click()
     }
-    console.log(postFile)
 
     // fetching file from firebase storage
     const uploadedFileRef = useMemo(() => ref(myStorage, 'preview/'), []);

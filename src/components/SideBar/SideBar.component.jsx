@@ -4,7 +4,7 @@ import styles from "./SideBar.module.css";
 import MyNavLink from "../NavLink/NavLink.component";
 import UserPanel from "../UserPanel/UserPanel.component";
 import AsideBar from "../AsideBar/AsideBar.component";
-import NotificationItem from "../AsideBar/AsideBarItem/AsideBarItem.component";
+import AsideBarItem from "../AsideBar/AsideBarItem/AsideBarItem.component";
 
 // imported icons
 import { BiHeart } from 'react-icons/bi'
@@ -38,7 +38,6 @@ function SideBar({ setIsModalOpen }) {
     setIsSearchOpen(!isSearchOpen)
     setIsNotificationOpen(false)
   }
-  console.log(styles)
 
   return (
     <Fragment>
@@ -85,10 +84,25 @@ function SideBar({ setIsModalOpen }) {
           classForText={styles.linkText}
           className={`${styles.link}`}
         />
-        <AsideBar heading="Notifications" isOpen={isNotificationOpen} setIsOpen={setIsNotificationOpen}>
-          <NotificationItem notificationType={"follow"} />
-        </AsideBar>
         <AsideBar type="search" heading="Search" isOpen={isSearchOpen} setIsOpen={setIsSearchOpen}>
+          <AsideBarItem>
+            <AsideBarItem.Avatar alt="Avatar" src={'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80'} />
+            <div className={styles.asideBarItemContainer}>
+              <AsideBarItem.Name>Rehmann Chaudhary</AsideBarItem.Name>
+              <AsideBarItem.Text>sjdiasjdiasidjasdiiajdi</AsideBarItem.Text>
+            </div>
+            <AsideBarItem.Button onClick={(e) => e.target.innerHTML = 'followed'}>Follow</AsideBarItem.Button>
+          </AsideBarItem>
+        </AsideBar>
+        <AsideBar heading="Notifications" isOpen={isNotificationOpen} setIsOpen={setIsNotificationOpen}>
+          <AsideBarItem>
+            <AsideBarItem.Avatar />
+            <div className={styles.asideBarItemContainer}>
+              <AsideBarItem.Name>Dhanush SuperStar</AsideBarItem.Name>
+              <AsideBarItem.Text>has started following you.</AsideBarItem.Text>
+            </div>
+            <AsideBarItem.Button onClick={() => alert("login first")}>Follow</AsideBarItem.Button>
+          </AsideBarItem>
         </AsideBar>
       </div>
     </Fragment>

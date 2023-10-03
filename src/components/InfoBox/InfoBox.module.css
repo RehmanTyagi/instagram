@@ -1,0 +1,33 @@
+.bodyWrapper {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.Body {
+    margin: auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    gap: 1.5rem;
+    max-width: 350px;
+    font-size: 4rem;
+    text-transform: capitalize;
+}
+
+.Body h1 {
+    font-size: 2rem;
+}
+
+.Header p {
+    color: darkgray;
+    font-size: .9rem;
+}
+
+
+@media (max-width:768px) {
+    .Header p {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}

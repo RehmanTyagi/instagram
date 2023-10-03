@@ -1,7 +1,7 @@
 .postsContainer {
     /* background-color: red; */
     display: grid;
-    padding: 1rem;
+    padding: 1.5em;
     grid-template-columns: repeat(auto-fit, minmax(50px, 200px));
     grid-gap: .5rem;
     justify-content: center;

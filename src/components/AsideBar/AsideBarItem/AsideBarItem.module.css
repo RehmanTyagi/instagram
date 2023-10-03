@@ -1,42 +1,39 @@
-.notificationItem {
-    display: flex;
-    gap: .5rem;
-    padding: 1em;
+.asideBarContainer {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     justify-content: space-between;
-    margin: .5rem auto;
+    gap: .7rem;
+    cursor: pointer;
     border-radius: 5px;
+    padding: 1em;
+    margin: .5rem auto;
 }
+
 
 .avatar {
     background-color: lightgray;
     margin-right: 1em;
     border-radius: 100%;
-    height: 60px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    overflow: hidden;
 }
 
-.notificationItem:hover {
+.avatar img {
+    height: 100%;
+    width: 100%;
+}
+
+.asideBarContainer:hover {
     background-color: whitesmoke;
 }
 
-.postImg {
-    background-color: lightgray;
-    height: 60px;
-    padding: .5em;
-}
-
-.time,
-.userName {
-    font-weight: 600;
-}
 
 @media (max-width:768px) {
     .avatar {
         height: 40px;
         width: 40px;
-    }
-
-    .notificationItem {
-        font-size: .9em;
     }
 }

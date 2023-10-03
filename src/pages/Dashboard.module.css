@@ -2,6 +2,8 @@
     height: 100dvh;
     display: grid;
     grid-template-columns: auto 1fr;
+    background-color: whitesmoke;
+
 }
 
 @media (max-width:768px) {

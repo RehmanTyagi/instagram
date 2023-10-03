@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    padding: 1em;
+
+}
+
+.icon:hover {
+    cursor: pointer;
+    color: var(--themeColor);
+}
+
+.body {
+    padding: 1rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem
+}
+
+
+.textArea {
+    padding: 1em;
+    width: 100%;
+    border: 1px solid lightgray;
+    outline-color: var(--themeColor);
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    resize: none;
+}
+
+.textArea::placeholder {
+    letter-spacing: normal;
+    color: lightgrey;
+}
+
+.wordLimit {
+    outline-color: red;
+    border: 2px solid red;
+}

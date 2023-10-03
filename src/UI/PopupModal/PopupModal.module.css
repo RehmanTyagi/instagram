@@ -1,0 +1,30 @@
+.modalWindow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    animation: popupForm 300ms ease-in-out forwards;
+    background-color: white;
+    width: 25rem;
+    border-radius: 10px;
+}
+
+@keyframes popupForm {
+    from {
+        transform: scale(.1);
+    }
+
+    to {
+        transform: scale(1);
+        transform: translateY(-50%) translateX(-50%);
+    }
+}
+
+.backDrop {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+}

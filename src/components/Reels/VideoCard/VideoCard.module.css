@@ -1,11 +1,10 @@
 .videoCard {
     position: relative;
-    display: flex;
-    justify-content: center;
+    display: grid;
     margin: auto;
     background-color: black;
-    height: 600px;
-    width: 350px;
+    height: 100%;
+    width: 330px;
     border-radius: 5px;
     box-shadow: 0px 0px 30px 15px lightgrey;
 }
@@ -31,8 +30,8 @@
 
 .volumeBtn {
     font-size: 2.5rem;
-    top: 20px;
-    right: 20px;
+    top: 5%;
+    right: 5%;
     padding: .5rem;
     background-color: rgba(219, 219, 219, 0.5);
     transition: all 200ms ease-in-out;
@@ -75,7 +74,7 @@
 
 .sideOptions {
     position: absolute;
-    bottom: 10px;
+    bottom: 50px;
     left: 100%;
 }
 
@@ -88,8 +87,15 @@
     }
 
     .videoCard {
-        width: auto;
+        width: 300px;
         height: 100%;
+    }
+}
+
+@media (max-width:375px) {
+    .videoCard {
+        height: 100%;
+        width: 100%;
     }
 
 }

@@ -3,6 +3,7 @@
     grid-gap: 2rem;
     grid-template-rows: 40%;
     overflow-y: scroll;
+    height: 100%;
 }
 
 .moreOption {
