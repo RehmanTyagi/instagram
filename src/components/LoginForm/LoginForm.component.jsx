@@ -1,32 +1,21 @@
-import styles from './LoginForm.module.css'
-
-// imported hooks
-import { useEffect, useState } from "react";
+import styles from './LoginForm.module.css';
 
 // imported components
-import MySkeleton from '../../UI/MySkeleton/MySkeleton.component';
-import Login from '../Login/Login.component'
-function LoginForm() {
-    const [ImgLink, setImgLink] = useState('')
-    useEffect(function () {
-        const FetchingPoster = async () => {
-            try {
-                const res = await fetch("https://i.ibb.co/rsz034B/phone-img.jpg")
-                setImgLink(res.url)
-            }
-            catch (error) {
-                console.log(error)
-            }
-        }
-        FetchingPoster()
-    }, [])
+import banner from '../../assets/login-banner.png';
+import CreateAccountBox from "../CreateAccountBox/CreateAccountBox.component";
+import Form from "../../UI/Form/Form.component";
 
+function LoginForm() {
     return (
         <div className={styles.container}>
-            {
-                !ImgLink ? <MySkeleton /> : <div><img className={styles.poster} src={ImgLink} alt="poster" /></div>
-            }
-            <Login />
+            <img className={styles.poster} src={banner} alt="poster" />
+            <div className={`${styles.loginForm}`}>
+                <div className={styles.wrapper}>
+                    <Form />
+                    <CreateAccountBox text={`Don't have an account?`} type="Sign Up" />
+                </div>
+                <p className={styles.copyrights}><strong>SocialGram</strong> Developed by Rehmann Chaudhary</p>
+            </div>
         </div>
     );
 }

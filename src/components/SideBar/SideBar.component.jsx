@@ -7,7 +7,7 @@ import AsideBar from "../AsideBar/AsideBar.component";
 import AsideBarItem from "../AsideBar/AsideBarItem/AsideBarItem.component";
 
 // imported icons
-import { BiHeart } from 'react-icons/bi'
+import { BiHeart } from 'react-icons/bi';
 import HomeIcon from "../../assets/icons/homeIcon";
 import SearchIcon from "../../assets/icons/searchIcon";
 import ExploreIcon from "../../assets/icons/exploreIcon";
@@ -21,7 +21,7 @@ import { useState, Fragment } from "react";
 
 function SideBar({ setIsModalOpen }) {
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const handleCreatePost = (e) => {
     e.preventDefault();
@@ -30,14 +30,14 @@ function SideBar({ setIsModalOpen }) {
   const handleNotification = (e) => {
     e.preventDefault();
     setIsNotificationOpen(!isNotificationOpen);
-    setIsSearchOpen(false)
+    setIsSearchOpen(false);
   };
   const handleSearch = (e) => {
-    e.preventDefault()
-    console.log('search btn hit')
-    setIsSearchOpen(!isSearchOpen)
-    setIsNotificationOpen(false)
-  }
+    e.preventDefault();
+    console.log('search btn hit');
+    setIsSearchOpen(!isSearchOpen);
+    setIsNotificationOpen(false);
+  };
 
   return (
     <Fragment>

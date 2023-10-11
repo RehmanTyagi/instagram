@@ -9,12 +9,6 @@
     transition: all ease .5s;
 }
 
-.button:hover {
-    background-color: rgba(72, 120, 500);
-    background-color: lightgray;
-    color: black;
-}
-
 .button:active {
     scale: 0.5;
 }

@@ -5,9 +5,8 @@
     gap: 1rem;
     width: 350px;
     margin: auto;
-    padding: 2rem;
+    padding: 1em 2em;
 }
-
 
 .googleSign_in {
     display: flex;
@@ -61,7 +60,7 @@
 
 
 .containerEffect {
-    border: 2px solid rgba(211, 211, 211, 0.5);
+    /* border: 2px solid rgba(211, 211, 211, 0.5); */
     border-radius: 3px;
 }
 

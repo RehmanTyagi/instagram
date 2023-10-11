@@ -1,39 +1,56 @@
-import styles from './ForgotPassword.module.css'
+import styles from './ForgotPassword.module.css';
 
 // icons 
-import { FaUnlockAlt } from 'react-icons/fa'
+import { FaUnlockAlt } from 'react-icons/fa';
 
 // imported components
 import Input from "../../UI/Input/Input.component";
 import Button from "../../UI/Button/Button.component";
 import HorizontalLine from "../../UI/HorizontalLine/HorizontalLine.component";
 import CreateAccountBox from "../CreateAccountBox/CreateAccountBox.component";
-import Box from '../Box/Box.component'
+import LazzySpinner from "../../UI/LoadingSpinner/LoadingSpinner.component";
+import Box from '../Box/Box.component';
 import BackButton from "../BackButton/BackButton.component";
 import { sendPasswordResetEmail, getAuth, AuthErrorCodes } from "firebase/auth";
-import { firebaseApp } from "../../services/firebase.config";
+import { firebase } from "../../lib/firebase";
+import { toast } from "react-toastify";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ForgotPassword({ style }) {
-    const [email, setEmail] = useState('')
-    const [error, setError] = useState('')
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const IncludedAtSign = email.includes("@");
+    const navigate = useNavigate();
 
-    const auth = getAuth(firebaseApp)
-    const handleResetForm = (e) => {
-        e.preventDefault()
+    const auth = getAuth(firebase);
+
+    const handleForgetSubmit = (e) => {
+        e.preventDefault();
+        if (!IncludedAtSign) return setError("email should contain @");
+        setIsLoading(true);
 
         sendPasswordResetEmail(auth, email).then(user => {
-            console.log(user)
-            alert("link sent")
+            toast.success("forget link sent to you!");
+            setError('');
+            setEmail('');
+            navigate('/');
         }).catch((err) => {
-            if (err.code === AuthErrorCodes.INVALID_EMAIL) setError("Email is invalid")
-            if (err.code === AuthErrorCodes.INVALID_RECIPIENT_EMAIL) setError("user not in database")
-        })
-    }
+            setIsLoading(false);
+            setError("");
+            if (err.code === AuthErrorCodes.INVALID_EMAIL) {
+                setError("Email is invalid");
+            }
+            if (err.code === AuthErrorCodes.INVALID_RECIPIENT_EMAIL) {
+                toast.error("email not found!");
+            }
+        });
+    };
 
     return (
-        <div style={style}>
-            <form onSubmit={handleResetForm}>
+        <div className={styles.forgotContainer}>
+            <form onSubmit={handleForgetSubmit}>
                 <Box className={`${styles.forgetPasswordBox}`}>
                     <div className={styles.iconWrapper}>
                         <FaUnlockAlt className={styles.icon} />
@@ -41,8 +58,8 @@ function ForgotPassword({ style }) {
                     <h2 className={styles.title}>Trouble logging in?</h2>
                     <p style={{ color: "red", fontWeight: "600" }}>{error}</p>
                     <p className={styles.paragraph}>Enter your email, phone, or username and we'll send you a link to get back into your account.</p>
-                    <Input event={(e) => setEmail(e.target.value)} placeholder="Email, Phone or Username" />
-                    <Button children="Send Reset Link" />
+                    <Input value={email} event={(e) => setEmail(e.target.value)} placeholder="Email" />
+                    <Button>{isLoading ? <LazzySpinner><LazzySpinner.LoadingSpinner /></LazzySpinner> : <p>Send Reset Link</p>}</Button>
                     <HorizontalLine />
                     <CreateAccountBox text="Create an account!" type="Sign Up" />
                     <BackButton />

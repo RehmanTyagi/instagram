@@ -1,6 +1,6 @@
 import styles from "./404.page.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import img from '../assets/not-found-gif.gif'
+import img from '../assets/not-found-img.gif';
 
 function NotFoundPage() {
   const navigate = useNavigate();

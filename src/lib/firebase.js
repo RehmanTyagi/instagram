@@ -1,12 +1,12 @@
 // Import the functions you need from the SDKs you need
+import 'firebase/auth';
 import { initializeApp } from "firebase/app";
-import { getStorage } from 'firebase/storage'
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { FieldValue, getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const config = {
     apiKey: "AIzaSyBIXfdHjkiYPobaGdx9Xw1k8JKLyI_lNks",
     authDomain: "sastagram-2023.firebaseapp.com",
     projectId: "sastagram-2023",
@@ -17,8 +17,14 @@ const firebaseConfig = {
     databaseURL: "https://sastagram-2023-default-rtdb.asia-southeast1.firebasedatabase.app"
 };
 
-// Initialize Firebase
-export const firebaseApp = initializeApp(firebaseConfig);
 
-// Initializing Firestore Storage
-export const myStorage = getStorage(firebaseApp)
+// Initialize Firebase
+const firebase = initializeApp(config);
+
+//firestore
+const db = getFirestore(firebase);
+
+// Initializing Firestore StorageKT
+const myStorage = getStorage(firebase);
+
+export { db, firebase, FieldValue, myStorage }; 

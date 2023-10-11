@@ -1,34 +1,34 @@
-import style from './CreatePost.module.css'
+import style from './CreatePost.module.css';
 
 // imported components
-import Modal from "../../UI/Modal/Modal.component"
-import Button from "../../UI/Button/Button.component"
-import { myStorage } from "../../services/firebase.config"
-import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage'
+import Modal from "../../UI/Modal/Modal.component";
+import Button from "../../UI/Button/Button.component";
+import { myStorage } from "../../lib/firebase";
+import { ref, uploadBytes, listAll, getDownloadURL, deleteObject } from 'firebase/storage';
 
 // imported icons
-import UploadFileIcon from "../../assets/icons/uploadFileIcon"
+import UploadFileIcon from "../../assets/icons/uploadFileIcon";
 
 //imported hooks
-import { useEffect, useState, useCallback, useMemo } from "react"
+import { useEffect, useState, useCallback, useMemo } from "react";
 
 // imported methods
-import { uploadPost } from "../../services/postsApi.js"
+import { uploadPost } from "../../services/postsApi.js";
 
 const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
-    const [postFile, setPostFile] = useState(null)
-    const [uploadedFile, setUploadedFile] = useState('')
+    const [postFile, setPostFile] = useState(null);
+    const [uploadedFile, setUploadedFile] = useState('');
 
     // select file and change file on selection
     const changeFileHandler = () => {
-        let input = document.createElement("input")
-        input.type = 'file'
+        let input = document.createElement("input");
+        input.type = 'file';
         input.onchange = () => {
-            const selectedFile = input.files[0]
-            setPostFile(selectedFile)
-        }
-        input.click()
-    }
+            const selectedFile = input.files[0];
+            setPostFile(selectedFile);
+        };
+        input.click();
+    };
 
     // fetching file from firebase storage
     const uploadedFileRef = useMemo(() => ref(myStorage, 'preview/'), []);
@@ -37,35 +37,35 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
         listAll(uploadedFileRef).then((response) => {
             response.items.forEach(item => {
                 getDownloadURL(item).then(url => {
-                    setUploadedFile(url)
-                })
-            })
-        })
-    }, [uploadedFileRef])
+                    setUploadedFile(url);
+                });
+            });
+        });
+    }, [uploadedFileRef]);
 
 
     // uploading the file to firebase storage
     useEffect(function () {
-        if (postFile === null) return
-        const postFileRef = ref(myStorage, `preview/file`)
+        if (postFile === null) return;
+        const postFileRef = ref(myStorage, `preview/file`);
         uploadBytes(postFileRef, postFile).then(() => {
             fetchFile();
-        }).catch(() => alert("file not uploaded"))
-    }, [postFile, fetchFile])
+        }).catch(() => alert("file not uploaded"));
+    }, [postFile, fetchFile]);
 
     const handleDiscardFile = () => {
-        const deleteFileRef = ref(myStorage, `preview/file`)
+        const deleteFileRef = ref(myStorage, `preview/file`);
         deleteObject(deleteFileRef).then(() => {
-            setUploadedFile('')
+            setUploadedFile('');
         }
-        ).catch(err => console.log(err.message))
+        ).catch(err => console.log(err.message));
 
-    }
+    };
 
     const handleUpload = () => {
-        uploadPost(uploadedFile)
-        setIsModalOpen(!isModalOpen)
-    }
+        uploadPost(uploadedFile);
+        setIsModalOpen(!isModalOpen);
+    };
 
 
     return (
@@ -88,7 +88,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
                     </div>
             }
         </Modal>
-    )
-}
+    );
+};
 
-export default CreatePost
+export default CreatePost;
