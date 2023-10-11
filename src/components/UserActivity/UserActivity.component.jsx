@@ -8,7 +8,7 @@ import Button from "../../UI/Button/Button.component";
 const { RangePicker } = DatePicker;
 
 const UserActivity = () => {
-    const [startDate, setStartDate] = useState(new Date())
+    // const [startDate, setStartDate] = useState(new Date())
     const handleDatePicker = () => {
     }
     const sample = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
