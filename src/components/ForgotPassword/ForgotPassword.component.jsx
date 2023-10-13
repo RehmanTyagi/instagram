@@ -14,7 +14,7 @@ import BackButton from "../BackButton/BackButton.component";
 import { sendPasswordResetEmail, getAuth, AuthErrorCodes } from "firebase/auth";
 import { firebase } from "../../lib/firebase";
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ForgotPassword({ style }) {
@@ -47,6 +47,10 @@ function ForgotPassword({ style }) {
             }
         });
     };
+
+    useEffect(function () {
+        document.title = 'Reset Password - SocialGram'
+    }, [])
 
     return (
         <div className={styles.forgotContainer}>

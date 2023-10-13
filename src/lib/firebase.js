@@ -1,5 +1,4 @@
 // Import the functions you need from the SDKs you need
-import 'firebase/auth';
 import { initializeApp } from "firebase/app";
 import { FieldValue, getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
@@ -16,7 +15,6 @@ const config = {
     measurementId: "G-3EZ6VP6J51",
     databaseURL: "https://sastagram-2023-default-rtdb.asia-southeast1.firebasedatabase.app"
 };
-
 
 // Initialize Firebase
 const firebase = initializeApp(config);

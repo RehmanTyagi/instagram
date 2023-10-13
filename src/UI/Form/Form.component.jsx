@@ -46,7 +46,6 @@ function Form() {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password).then(
             (userCredential) => {
-                console.log(userCredential.user)
                 setError('');
                 setEmail('');
                 setPassword('');

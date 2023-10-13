@@ -5,9 +5,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { lazy, Suspense } from "react";
 import LazzyLoader from "./UI/LoadingSpinner/LoadingSpinner.component";
 import { ToastContainer } from "react-toastify";
+import ProtectedRoute from "./UI/ProtectedRoute/ProtectedRoute.component";
 
 // imported contexts
 import { AudioProvider } from "./contexts/AudioContext";
+import { UserContextProvider } from "./contexts/UserContext";
 
 // dashboard features
 import Profile from './components/Profile/Profile.component';
@@ -36,28 +38,30 @@ function App() {
         <AudioProvider>
           <ToastContainer className="toast" />
           <Suspense fallback={<LazzyLoader><LazzyLoader.LargeLoadingSpinner /><LazzyLoader.BackDrop /></LazzyLoader>}>
-            <Routes>
-              <Route index element={<LoginPage />} />
-              <Route path="forgot_password" element={<ForgetPage />} />
-              <Route path="sign_up" element={<SignUpPage />} />
-              <Route path="dashboard" element={<DashboardPage />}>
-                <Route path="reels" element={<Reels isScrollable={true} />} />
-                <Route path="settings" element={<UserSettings />} />
-                <Route path="activity" element={<UserActivity />} />
-                <Route index element={<Navigate to='profile/posts' />} />
-                <Route path="profile" element={<Navigate to='posts' />} />
-                <Route element={<Profile />}>
-                  <Route path="profile/posts" element={<Posts />} />
-                  <Route path="profile/reels" element={<UserReels />} />
-                  <Route path="profile/saved" element={<UserSaved />} />
+            <UserContextProvider>
+              <Routes>
+                <Route index element={<LoginPage />} />
+                <Route path="forgot_password" element={<ForgetPage />} />
+                <Route path="sign_up" element={<SignUpPage />} />
+                <Route path="dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>}>
+                  <Route path="reels" element={<Reels isScrollable={true} />} />
+                  <Route path="settings" element={<UserSettings />} />
+                  <Route path="activity" element={<UserActivity />} />
+                  <Route index element={<Navigate to='profile/posts' />} />
+                  <Route path="profile" element={<Navigate to='posts' />} />
+                  <Route element={<Profile />}>
+                    <Route path="profile/posts" element={<Posts />} />
+                    <Route path="profile/reels" element={<UserReels />} />
+                    <Route path="profile/saved" element={<UserSaved />} />
+                  </Route>
                 </Route>
-              </Route>
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </UserContextProvider>
           </Suspense>
         </AudioProvider>
       </BrowserRouter>
-    </QueryClientProvider>
+    </QueryClientProvider >
   );
 }
 

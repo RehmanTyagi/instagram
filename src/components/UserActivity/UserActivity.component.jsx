@@ -25,7 +25,7 @@ const UserActivity = () => {
             </div>
             <div className={style.activityBody}>
                 {
-                    sample.map(activityItem => <div className={style.activityItem}>
+                    sample.map(() => <div className={style.activityItem}>
                         <strong>12/20/2023</strong>
                         <p>You unfollowed [username] at [month/year]. follow back</p>
                         <Button children="Follow Back" type="button" />

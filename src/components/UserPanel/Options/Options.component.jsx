@@ -1,5 +1,6 @@
 import style from "./Options.module.css";
 import MyNavLink from "../../NavLink/NavLink.component";
+import { getAuth } from "firebase/auth";
 
 import { forwardRef } from "react";
 
@@ -16,6 +17,11 @@ import {
 } from "react-icons/ci";
 
 const OptionDropDown = forwardRef(({ className }, ref) => {
+
+  const handleLogOutUser = async () => {
+    const currentUser = getAuth()
+    currentUser.signOut()
+  }
 
   return (
     <Box ref={ref} className={`${style.container} ${className}`}>
@@ -37,7 +43,7 @@ const OptionDropDown = forwardRef(({ className }, ref) => {
           <p>Report a problem</p>
         </MyNavLink>
       </ReportBug>
-      <MyNavLink className={style.link}>
+      <MyNavLink onClick={handleLogOutUser} className={style.link}>
         <CiLogout size={25} />
         <p>Log Out</p>
       </MyNavLink>

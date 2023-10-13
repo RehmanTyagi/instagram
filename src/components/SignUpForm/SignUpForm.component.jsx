@@ -37,7 +37,6 @@ function Reducer(state, action) {
 function SignUpForm() {
     const [state, dispatch] = useReducer(Reducer, initialUserInfo);
     const { userName, email, fullName, password, confirmPassword } = state;
-
     // error handling
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -57,19 +56,19 @@ function SignUpForm() {
 
         if (userNameExist) {
             setIsLoading(false)
-            setError('username already existed!')
+            setError('username already used!')
             return
         }
 
         createUserWithEmailAndPassword(auth, email, password).then(
             async (userCredential) => {
-
-                const username = userCredential.user.displayName = userName
                 await setDoc(doc(db, 'users', userCredential.user.uid), {
-                    userId: Math.random().toFixed(2),
-                    username: username,
-                    fullName: fullName,
+                    userId: userCredential.user.uid,
+                    userName: userName.toUpperCase(),
+                    fullName: fullName.toUpperCase(),
                     emailAddress: email,
+                    following: [],
+                    followers: [],
                     dateCreated: Date.now()
                 });
 
