@@ -1,20 +1,12 @@
 .profileCard {
     display: grid;
-    grid-gap: 2rem;
-    grid-template-rows: 40%;
     overflow-y: scroll;
     height: 100%;
 }
 
-.moreOption {
-    transform: rotate(270deg);
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
 .userInfo {
     display: grid;
-    grid-template-columns: 200px 500px;
+    grid-template-columns: auto 500px;
     margin: auto;
     align-items: center;
     grid-gap: 2.5rem;
@@ -24,6 +16,10 @@
 .ProfilePicture {
     grid-row: 1/4;
     align-self: flex-start;
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    /* padding: 1rem */
 }
 
 .userActions {
@@ -54,6 +50,7 @@
 .messageBtn {
     background-color: rgb(233, 233, 233);
     color: black;
+    padding: 0 !important;
 }
 
 .userDescription {
@@ -71,9 +68,6 @@
 }
 
 @media (max-width:1100px) {
-    .profileCard {
-        grid-template-rows: 50%;
-    }
 
     .userInfo {
         padding: 1rem;
@@ -86,6 +80,10 @@
     .userDescription {
         width: auto;
     }
+
+    .skeletonSize {
+        width: 500px;
+    }
 }
 
 @media (max-width:768px) {
@@ -95,7 +93,6 @@
 
     .userActions {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .userName {
@@ -104,5 +101,13 @@
 
     .tabBtns {
         gap: 1.5rem;
+    }
+
+    .skeletonSize {
+        width: 250px;
+    }
+
+    .messageBtn {
+        display: none !important;
     }
 }

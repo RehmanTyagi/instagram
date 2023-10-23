@@ -1,7 +1,16 @@
 import style from './Avatar.module.css'
-const Avatar = ({ className, inlineStyle }) => {
+import { Skeleton } from 'react-skeleton-generator'
+
+const Avatar = ({ avatarURL, className, skeletonHeight, skeletonWidth }) => {
     return (
-        <img className={`${style.userAvatar} ${className}`} style={inlineStyle} src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1727&q=80" alt="avatar" />
+        <>
+            {
+                avatarURL ? <img className={`${style.userAvatar} ${className}`} src={avatarURL} alt="avatar" />
+                    : <div className={`${style.userAvatar} ${className}`}><Skeleton.SkeletonThemeProvider >
+                        <Skeleton width={`${skeletonWidth}px`} height={`${skeletonHeight}px`} borderRadius="50%" />
+                    </Skeleton.SkeletonThemeProvider></div>
+            }
+        </>
     )
 }
 

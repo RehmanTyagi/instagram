@@ -1,34 +1,32 @@
-import { createContext, useContext, useEffect, useState } from "react"
-import { getAuth } from 'firebase/auth'
+import { useContext, createContext, useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
+import { firebase } from "../lib/firebase";
 
-const UserContext = createContext(null)
+const AuthContext = createContext(null)
 
-const UserContextProvider = ({ children }) => {
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('authUser')))
+const AuthContextProvider = ({ children }) => {
+    const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('authUser')))
 
     useEffect(function () {
-        const Listener = getAuth().onAuthStateChanged((authUser) => {
-            if (authUser) {
-                localStorage.setItem('authUser', JSON.stringify(authUser))
-                setUser(authUser)
-            }
-            else {
+        const subscribe = () => getAuth(firebase).onAuthStateChanged(user => {
+            if (user) {
+                setCurrentUser(user)
+                localStorage.setItem("authUser", JSON.stringify(user))
+            } else {
+                setCurrentUser(null)
                 localStorage.removeItem('authUser')
-                setUser(null)
             }
         })
-        return () => Listener()
 
-    }, [])
+        return () => subscribe()
+    }, [currentUser])
 
-    return (
-        <UserContext.Provider value={{ user }}> {children}</UserContext.Provider>
-    )
+    return <AuthContext.Provider value={{ currentUser }}>{children}</AuthContext.Provider>
 }
 
 const useAuth = () => {
-    const context = useContext(UserContext)
+    const context = useContext(AuthContext)
     return context
 }
 
-export { UserContextProvider, useAuth }
+export { AuthContextProvider, useAuth }

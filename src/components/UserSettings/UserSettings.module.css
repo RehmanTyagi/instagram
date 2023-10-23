@@ -8,6 +8,11 @@
     font-size: 2rem;
 }
 
+.userAvatar {
+    height: 100px;
+    width: 100px;
+}
+
 .content {
     display: grid;
     gap: 1rem;

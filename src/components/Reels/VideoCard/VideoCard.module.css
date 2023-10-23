@@ -85,14 +85,9 @@
         left: 5px;
         bottom: 15px;
     }
-
-    .videoCard {
-        width: 300px;
-        height: 100%;
-    }
 }
 
-@media (max-width:375px) {
+@media (max-width:400px) {
     .videoCard {
         height: 100%;
         width: 100%;

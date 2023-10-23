@@ -14,7 +14,7 @@ function UserPanel({ className, classForText }) {
   const panelBtnRef = useRef();
 
   const manageOutSideClicks = (e) => {
-    if (panelBtnRef.current.contains(e.target))
+    if (panelBtnRef.current?.contains(e.target))
       setIsPanelOpen((isOpen) => !isOpen);
     else {
       if (!userPanelRef.current?.contains(e.target)) setIsPanelOpen(false);

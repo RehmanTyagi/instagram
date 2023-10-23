@@ -34,7 +34,6 @@ function SideBar({ setIsModalOpen }) {
   };
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log('search btn hit');
     setIsSearchOpen(!isSearchOpen);
     setIsNotificationOpen(false);
   };
@@ -76,7 +75,7 @@ function SideBar({ setIsModalOpen }) {
             <p className={styles.linkText}>Create</p>
           </MyNavLink>
           <MyNavLink className={styles.link} link="profile">
-            <Avatar inlineStyle={{ height: "30px", width: "30px" }} />
+            <Avatar skeletonHeight={30} skeletonWidth={30} className={styles.userProfilePicture} />
             <p className={styles.linkText}>Profile</p>
           </MyNavLink>
         </div>

@@ -2,7 +2,6 @@ import styles from './Form.module.css';
 
 // hooks
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // external libraries
 import { Link } from "react-router-dom";
@@ -20,18 +19,19 @@ import { firebase } from "../../lib/firebase";
 import React from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 // minified version is also included
 // import 'react-toastify/dist/ReactToastify.min.css';
 
 
 function Form() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('rehmantyagi@gmail.com');
+    const [password, setPassword] = useState('rehman2023');
     const [error, setError] = useState({ errorMessage: '', type: '' });
     const [isPasswordShow, setIsPasswordShow] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const inputRef = useRef();
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     // firebase auth
     let auth = getAuth(firebase);
@@ -45,12 +45,12 @@ function Form() {
         e.preventDefault();
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password).then(
-            (userCredential) => {
+            () => {
                 setError('');
                 setEmail('');
                 setPassword('');
-                navigate('dashboard');
                 toast.success("logged in");
+                navigate('dashboard')
             }
         ).catch((err) => {
             setIsLoading(false);
@@ -71,9 +71,9 @@ function Form() {
     };
 
     const HandleGoogleLogin = () => {
-        signInWithPopup(auth, LoginProvider).then((userCredential) => {
+        signInWithPopup(auth, LoginProvider).then(() => {
             toast.success("Logged In");
-            navigate('dashboard');
+            navigate('dashboard')
         }).catch(() => {
             if (AuthErrorCodes.POPUP_CLOSED_BY_USER) setError("Popup Canceled by you");
             toast.error(error);

@@ -5,10 +5,10 @@ const LazzyLoader = ({ children }) => {
 };
 
 const LoadingSpinner = () => {
-    return <div className={style.spinnerBox}><div class={style.spinner}></div></div>;
+    return <div className={style.spinnerBox}><div className={style.spinner}></div></div>;
 };
 const LargeLoadingSpinner = () => {
-    return <div className={style.largeSpinnerBox}><div class={style.spinner}></div></div>;
+    return <div className={style.largeSpinnerBox}><div className={style.spinner}></div></div>;
 };
 
 const BackDrop = () => {

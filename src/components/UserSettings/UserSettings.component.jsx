@@ -8,7 +8,7 @@ const UserSettings = () => {
             <p className={style.heading}>Edit Profile</p>
             <form className={style.content}>
                 <div className={style.profilePicture}>
-                    <Avatar inlineStyle={{ height: "100px", width: "100px" }} />
+                    <Avatar skeletonHeight={100} skeletonWidth={100} className={style.userAvatar} />
                     <Button type='button' children='Change Profile Picture' />
                 </div>
                 <div className={style.username}>

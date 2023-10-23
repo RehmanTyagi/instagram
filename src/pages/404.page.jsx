@@ -9,7 +9,10 @@ function NotFoundPage() {
     <div className={styles.container}>
       <img src={img} alt="img" />
       <h1>Page Not Found!</h1>
-      <p>you clicked a broken link or the desired page does not exist.</p>
+      {
+        //<p>you clicked a broken link or the desired page does not exist.</p>
+      }
+      <p>this page is under development. soon it will be shown its content!</p>
       <Link to={navigate(-1)}>Go Back</Link>
     </div>
   );

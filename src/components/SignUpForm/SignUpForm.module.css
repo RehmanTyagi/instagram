@@ -21,3 +21,10 @@
 .isEmpty {
     border: 1px solid red;
 }
+
+.uploadFileBox {
+    border: 2px solid lightgray;
+    border-style: dashed;
+    padding: .5em;
+    cursor: pointer;
+}

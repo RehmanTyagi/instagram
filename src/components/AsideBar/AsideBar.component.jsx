@@ -7,7 +7,7 @@ import { BiX } from 'react-icons/bi'
 // imported components
 const AsideBar = ({ type, children, isOpen, setIsOpen, heading }) => {
     const [searchQuery, setSearchQuery] = useState("")
-    console.log(searchQuery)
+
     const handleSearchQuery = (e) => {
         const query = e.target.value
         setSearchQuery(query)

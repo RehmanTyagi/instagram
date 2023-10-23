@@ -18,7 +18,7 @@ const VideoCard = ({ url, ShowOptions, className, autoPlay }) => {
     const { isMuted, setIsMuted } = useAudio()
     const reelRef = useRef(null)
     const { ref: videoRef, inView: videoIsVisible } = useInView({
-        threshold: 1
+        threshold: 0.8,
     })
 
     // handle onclick play and pause
