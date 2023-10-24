@@ -1,7 +1,7 @@
 import { collection, where, query, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import { myStorage } from "../lib/firebase";
-import { ref, uploadBytes, getDownloadURL, listAll, deleteObject } from "firebase/storage";
+import { ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
 
 const storageRef = ref(myStorage)
 
@@ -41,7 +41,7 @@ export const downloadImgFromStorage = async (path) => {
 
 export const uploadPost = async (file, path) => {
     const postRef = ref(storageRef, path)
-    uploadBytes(postRef, file).then(() => console.log('post uploaded')).catch(err => console.log(err.message))
+    uploadBytes(postRef, file)
 }
 export const deletePost = async (path) => {
     const postRef = ref(storageRef, path)
