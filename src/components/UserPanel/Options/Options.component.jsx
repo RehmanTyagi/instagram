@@ -6,6 +6,10 @@ import { forwardRef } from "react";
 
 import Box from "../../Box/Box.component";
 import ReportBug from '../../ReportBug/ReportBug.component';
+import Modal from "../../../UI/PopupModal/PopupModal.component";
+import { CiSquareAlert } from 'react-icons/ci'
+import { BiX } from 'react-icons/bi'
+import Button from "../../../UI/Button/Button.component";
 
 //imported icons
 import {
@@ -43,10 +47,28 @@ const OptionDropDown = forwardRef(({ className }, ref) => {
           <p>Report a problem</p>
         </MyNavLink>
       </ReportBug>
-      <MyNavLink onClick={handleLogOutUser} className={style.link}>
-        <CiLogout size={25} />
-        <p>Log Out</p>
-      </MyNavLink>
+      <Modal>
+        <Modal.ModalWindow>
+          <div className={style.logoutAlert}>
+            <div className={style.logoutAlertHeader}><CiSquareAlert size={20} /><Modal.Open><BiX size={20} className={style.closeBtn} /></Modal.Open></div>
+            <div className={style.logoutAlertBody}>
+              <h1>Are you sure to logging out?</h1>
+              <Button event={handleLogOutUser} type="button" children="Logout" />
+              <Modal.Open>
+                <span>
+                  <Button className={style.logoutAlertCancel} type="button" children="Cancel" />
+                </span>
+              </Modal.Open>
+            </div>
+          </div>
+        </Modal.ModalWindow>
+        <Modal.Open>
+          <MyNavLink className={style.link}>
+            <CiLogout size={25} />
+            <p>Log Out</p>
+          </MyNavLink>
+        </Modal.Open>
+      </Modal>
     </Box>
 
   );

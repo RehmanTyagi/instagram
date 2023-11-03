@@ -1,14 +1,14 @@
 import style from './UserSettings.module.css'
-import Avatar from '../Profile/Avatar/Avatar.component'
 import Input from '../../UI/Input/Input.component'
 import Button from '../../UI/Button/Button.component'
+import UserProfile from "../Profile/UserProfile/UserProfile"
 const UserSettings = () => {
     return (
         <div className={style.settings}>
             <p className={style.heading}>Edit Profile</p>
             <form className={style.content}>
                 <div className={style.profilePicture}>
-                    <Avatar skeletonHeight={100} skeletonWidth={100} className={style.userAvatar} />
+                    <UserProfile><UserProfile.Avatar skeletonHeight={100} skeletonWidth={100} className={style.userAvatar} /></UserProfile>
                     <Button type='button' children='Change Profile Picture' />
                 </div>
                 <div className={style.username}>

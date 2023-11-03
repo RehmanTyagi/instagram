@@ -11,6 +11,39 @@
     text-transform: capitalize;
 }
 
+.logoutAlert {
+    width: 20rem;
+}
+
+.logoutAlert .logoutAlertHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.logoutAlertHeader .closeBtn {
+    cursor: pointer;
+}
+
+.logoutAlertBody {
+    border-top: 1px solid lightgray;
+    display: grid;
+    grid-gap: 1rem;
+    text-align: center;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1em;
+}
+
+.logoutAlertBody h1 {
+    font-size: 1rem;
+    grid-column: 1/-1;
+}
+
+.logoutAlertCancel {
+    width: 100%;
+}
+
 @media (max-width:768px) {
     .container {
         position: relative;

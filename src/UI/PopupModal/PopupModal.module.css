@@ -4,7 +4,6 @@
     left: 50%;
     animation: popupForm 300ms ease-in-out forwards;
     background-color: white;
-    width: 25rem;
     border-radius: 10px;
 }
 

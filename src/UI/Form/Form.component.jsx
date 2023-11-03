@@ -25,7 +25,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Form() {
-    const [email, setEmail] = useState('rehmantyagi@gmail.com');
+    const [email, setEmail] = useState('rehmannchaudhary@gmail.com');
     const [password, setPassword] = useState('rehman2023');
     const [error, setError] = useState({ errorMessage: '', type: '' });
     const [isPasswordShow, setIsPasswordShow] = useState(false);

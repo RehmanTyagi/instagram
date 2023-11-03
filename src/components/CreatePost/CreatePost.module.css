@@ -20,10 +20,8 @@
 .uploadBox {
     display: flex;
     flex-direction: column;
-}
-
-.previewFrame {
-    height: 100%;
+    overflow: hidden;
+    padding: 10em;
 }
 
 .uploadArea {
@@ -34,17 +32,26 @@
     gap: 1rem;
     padding: 1em;
     height: 100%;
-    width: 100%;
+    width: 100%
 }
 
-.uploadBox {
-    height: 80dvh;
-    width: 80dvb;
+.previewFrame {
+    height: 50dvh;
 }
 
-@media (max-width:768px) {
+.previewShown {
+    padding: 0;
+}
+
+@media (max-width:968px) {
+    .previewFrame {
+        height: 100%;
+        width: 100%;
+    }
+
     .uploadBox {
-        height: 70%;
-        width: 95%;
+        width: 90%;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }

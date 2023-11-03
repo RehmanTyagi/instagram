@@ -2,7 +2,7 @@ import style from './CardSideMenu.module.css'
 
 // imported icons
 import { AiOutlineHeart, AiOutlineMessage, AiOutlineLink } from 'react-icons/ai'
-import Avatar from '../../../Profile/Avatar/Avatar.component'
+import UserProfile from '../../../Profile/UserProfile/UserProfile'
 const CardSideMenu = ({ className }) => {
     return (
         <div className={`${style.menu} ${className}`}>
@@ -15,7 +15,7 @@ const CardSideMenu = ({ className }) => {
                 <p>1299</p>
             </div>
             <AiOutlineLink className={style.icon} />
-            <Avatar className={style.userAvatar} />
+            <UserProfile><UserProfile.Avatar className={style.userAvatar} /></UserProfile>
         </div>
     )
 }

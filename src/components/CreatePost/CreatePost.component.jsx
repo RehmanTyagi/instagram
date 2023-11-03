@@ -52,7 +52,7 @@ const CreatePost = ({ isModalOpen, setIsModalOpen }) => {
     }
 
     return (
-        <Modal className={style.uploadBox} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+        <Modal className={`${style.uploadBox} ${preview ? style.previewShown : ''}`} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
             {preview &&
                 <div className={style.modalNav}>
                     <Button type="button" children="Discard" event={discardFile} />

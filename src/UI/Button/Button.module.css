@@ -1,6 +1,6 @@
 .button {
     padding: .5rem 1rem;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     border: none;
     background-color: var(--themeColor);
     font-weight: 600;

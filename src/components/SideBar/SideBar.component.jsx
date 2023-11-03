@@ -13,7 +13,7 @@ import SearchIcon from "../../assets/icons/searchIcon";
 import ExploreIcon from "../../assets/icons/exploreIcon";
 import ReelsIcon from "../../assets/icons/reelsIcon";
 import CreatePostIcon from "../../assets/icons/createPostIcon";
-import Avatar from "../Profile/Avatar/Avatar.component";
+import UserProfile from "../Profile/UserProfile/UserProfile";
 import BrandLogo from "../../UI/Logo/Logo.compnent";
 
 // imported hooks
@@ -75,7 +75,7 @@ function SideBar({ setIsModalOpen }) {
             <p className={styles.linkText}>Create</p>
           </MyNavLink>
           <MyNavLink className={styles.link} link="profile">
-            <Avatar skeletonHeight={30} skeletonWidth={30} className={styles.userProfilePicture} />
+            <UserProfile><UserProfile.Avatar skeletonHeight={30} skeletonWidth={30} className={styles.userProfilePicture} /></UserProfile>
             <p className={styles.linkText}>Profile</p>
           </MyNavLink>
         </div>
